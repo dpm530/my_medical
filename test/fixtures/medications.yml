@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  drug_name: MyString
+  dosage: MyString
+  frequency: MyString
+  began_on: 2019-05-23
+  reason_taking: MyString
+  side_effects: MyString
+  note: MyText
+
+two:
+  drug_name: MyString
+  dosage: MyString
+  frequency: MyString
+  began_on: 2019-05-23
+  reason_taking: MyString
+  side_effects: MyString
+  note: MyText

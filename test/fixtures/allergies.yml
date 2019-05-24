@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  allergen: MyString
+  reaction: MyString
+  severity: MyString
+  note: MyText
+  record: one
+
+two:
+  allergen: MyString
+  reaction: MyString
+  severity: MyString
+  note: MyText
+  record: two

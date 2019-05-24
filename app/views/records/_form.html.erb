@@ -17,6 +17,11 @@
   </div>
 
   <div class="field">
+      <%= form.label :patient_id %>
+      <%= form.select('patient_id', options_for_select(@patients.collect{|p| [ p.first_name, p.id ] })) %>
+  </div>
+
+  <div class="field">
     <%= form.label :patient_id %>
     <%= form.text_field :patient_id %>
   </div>

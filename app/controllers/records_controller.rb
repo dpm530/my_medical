@@ -12,10 +12,11 @@ class RecordsController < ApplicationController
   def show
   end
 
-  # GET /records/new
-  def new
-    @record = Record.new
-  end
+   # GET /records/new
+   def new
+     @record = Record.new
+     @patients=Patient.all
+   end
 
   # GET /records/1/edit
   def edit
