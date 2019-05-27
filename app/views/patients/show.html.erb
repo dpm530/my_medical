@@ -1,35 +1,159 @@
-<p id="notice"><%= notice %></p>
+<%= render "shared/navbar_signed_in" %>
 
-<p>
-  <strong>First name:</strong>
-  <%= @patient.first_name %>
-</p>
+<div class="container mt-4">
+   <div class="row mb-4">
+      <div id="blocks" class="col-md-12 mx-auto border py-4 mb-2">
+         <h3 class="mb-2">Patient</h3>
+         <ul class="nav border mb-2">
+            <li class="nav-item">
+               <%= link_to 'Edit', edit_patient_path(@patient), class:'nav-link' %>
+            </li>
+         </ul>
+         <table class="table table-hover">
+            <thead>
+               <tr>
+                  <th>First name</th>
+                  <th>Last name</th>
+                  <th>Dob</th>
+                  <th>Mobile phone</th>
+                  <th>Email</th>
+                  <th>Sex</th>
+               </tr>
+            </thead>
+            <tbody>
+                  <tr>
+                     <td><%= @patient.first_name %></td>
+                     <td><%= @patient.last_name %></td>
+                     <td><%= @patient.dob %></td>
+                     <td><%= @patient.mobile_phone %></td>
+                     <td><%= @patient.email %></td>
+                     <td><%= @patient.sex %></td>
+                  </tr>
+            </tbody>
+         </table>
+      </div>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @patient.last_name %>
-</p>
+      <div id="blocks" class="col-md-12 mx-auto border py-4">
+         <h3 class="mb-2">Medical Record</h3>
+         <ul class="nav nav-tabs">
+            <li class="nav-item">
+               <a class="nav-link active" data-toggle="tab" href="#medication">Medications</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" data-toggle="tab" href="#allergy">Allergies</a>
+            </li>
+         </ul>
 
-<p>
-  <strong>Dob:</strong>
-  <%= @patient.dob %>
-</p>
+         <div class="tab-content">
 
-<p>
-  <strong>Mobile phone:</strong>
-  <%= @patient.mobile_phone %>
-</p>
+            <div class="tab-pane container active pt-4" id="medication">
 
-<p>
-  <strong>Email:</strong>
-  <%= @patient.email %>
-</p>
+               <ul class="nav border mb-2">
+                  <li class="nav-item">
+                     <% if @medication %>
+                        <%= link_to 'Edit', edit_medication_path(@medication), class:'nav-link' %>
+                     <% else %>
+                        <%= link_to 'New Medication', new_medication_path, class:'nav-link' %>
+                     <% end %>
+                  </li>
+               </ul>
 
-<p>
-  <strong>Sex:</strong>
-  <%= @patient.sex %>
-</p>
+               <div class="row py-4">
+                  <% if @medication %>
+                     <div class="col-md-6">
+                        <p>
+                          <strong>Drug name:</strong>
+                          <%= @medication.drug_name %>
+                        </p>
 
-<a href="/records" class="btn btn-primary">Medical Records</a>
-<%= link_to 'Edit', edit_patient_path(@patient) %> |
-<%= link_to 'Back', patients_path %>
+                        <p>
+                          <strong>Dosage:</strong>
+                          <%= @medication.dosage %>
+                        </p>
+
+                        <p>
+                          <strong>Frequency:</strong>
+                          <%= @medication.frequency %>
+                        </p>
+
+                        <p>
+                          <strong>Began on:</strong>
+                          <%= @medication.began_on %>
+                        </p>
+
+                     </div>
+                     <div class="col-md-6">
+
+                        <p>
+                          <strong>Reason taking:</strong>
+                          <%= @medication.reason_taking %>
+                        </p>
+
+                        <p>
+                          <strong>Side effects:</strong>
+                          <%= @medication.side_effects %>
+                        </p>
+
+                        <p>
+                          <strong>Note:</strong>
+                          <%= @medication.note %>
+                        </p>
+                     </div>
+                  <% else %>
+
+                  <% end %>
+               </div>
+
+            </div>
+
+            <div class="tab-pane container fade pt-4" id="allergy">
+
+               <ul class="nav border mb-2">
+                  <li class="nav-item">
+                     <% if @allergy %>
+                        <%= link_to 'Edit', edit_allergy_path(@allergy), class:'nav-link' %>
+                     <% else %>
+                        <%= link_to 'New Allergy', new_allergy_path, class:'nav-link' %>
+                     <% end %>
+                  </li>
+               </ul>
+
+               <div class="row py-4">
+                  <div class="col-md-6">
+                     <% if @allergy %>
+                        <p>
+                          <strong>Allergen:</strong>
+                          <%= @allergy.allergen %>
+                        </p>
+
+                        <p>
+                          <strong>Reaction:</strong>
+                          <%= @allergy.reaction %>
+                        </p>
+
+                        <p>
+                          <strong>Severity:</strong>
+                          <%= @allergy.severity %>
+                        </p>
+
+                        <p>
+                          <strong>Note:</strong>
+                          <%= @allergy.note %>
+                        </p>
+                     <% else %>
+
+                     <% end %>
+                  </div>
+               </div>
+
+            </div>
+
+         </div>
+
+      </div>
+   </div>
+</div>
+
+
+
+<%= render "shared/footer" %>

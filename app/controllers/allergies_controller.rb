@@ -12,13 +12,15 @@ class AllergiesController < ApplicationController
   def show
   end
 
-  # GET /allergies/new
-  def new
-    @allergy = Allergy.new
-  end
+   # GET /allergies/new
+   def new
+      @patients=Patient.all
+      @allergy = Allergy.new
+   end
 
   # GET /allergies/1/edit
   def edit
+     @patients=Patient.all
   end
 
   # POST /allergies
@@ -28,7 +30,7 @@ class AllergiesController < ApplicationController
 
     respond_to do |format|
       if @allergy.save
-        format.html { redirect_to @allergy, notice: 'Allergy was successfully created.' }
+        format.html { redirect_to patient_path(@allergy.patient), notice: 'Allergy was successfully created.' }
         format.json { render :show, status: :created, location: @allergy }
       else
         format.html { render :new }
@@ -42,7 +44,7 @@ class AllergiesController < ApplicationController
   def update
     respond_to do |format|
       if @allergy.update(allergy_params)
-        format.html { redirect_to @allergy, notice: 'Allergy was successfully updated.' }
+        format.html { redirect_to patient_path(@allergy.patient), notice: 'Allergy was successfully updated.' }
         format.json { render :show, status: :ok, location: @allergy }
       else
         format.html { render :edit }
@@ -69,6 +71,6 @@ class AllergiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def allergy_params
-      params.require(:allergy).permit(:allergen, :reaction, :severity, :note, :record_id)
+      params.require(:allergy).permit(:allergen, :reaction, :severity, :note, :patient_id)
     end
 end

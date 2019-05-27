@@ -35,5 +35,10 @@
   <%= @medication.note %>
 </p>
 
+<p>
+  <strong>Patient:</strong>
+  <%= @medication.patient.first_name %>
+</p>
+
 <%= link_to 'Edit', edit_medication_path(@medication) %> |
 <%= link_to 'Back', medications_path %>

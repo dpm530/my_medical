@@ -6,10 +6,9 @@ Rails.application.routes.draw do
 
    resources :patients
    resources :users
-   resources :allergies
    resources :medications
 
-   resources :records
+   resources :allergies
 
 
 end

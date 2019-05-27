@@ -1,37 +1,47 @@
-<p id="notice"><%= notice %></p>
+<%= render "shared/navbar_signed_in" %>
 
-<h1>Patients</h1>
+<div class="container mt-4">
+   <div class="row mb-4">
+      <div id="blocks" class="col-md-12 mx-auto border py-4">
+         <h3 class="mb-2">Patients</h3>
+         <ul class="nav border mb-2">
+            <li class="nav-item">
+               <%= link_to 'New Patient', new_patient_path, class:'nav-link active' %>
+            </li>
+         </ul>
+         <table class="table table-hover">
+            <thead>
+               <tr>
+                  <th>First name</th>
+                  <th>Last name</th>
+                  <th>Dob</th>
+                  <th>Mobile phone</th>
+                  <th>Email</th>
+                  <th>Sex</th>
+                  <th colspan="3">Actions</th>
+               </tr>
+            </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Dob</th>
-      <th>Mobile phone</th>
-      <th>Email</th>
-      <th>Sex</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+            <tbody>
+               <% @patients.each do |patient| %>
+                  <tr>
+                     <td><%= patient.first_name %></td>
+                     <td><%= patient.last_name %></td>
+                     <td><%= patient.dob %></td>
+                     <td><%= patient.mobile_phone %></td>
+                     <td><%= patient.email %></td>
+                     <td><%= patient.sex %></td>
+                     <td><%= link_to 'Show', patient, class:'btn btn-primary' %></td>
+                     <td><%= link_to 'Edit', edit_patient_path(patient), class:'btn btn-primary' %></td>
+                     <td><%= link_to 'Destroy', patient, method: :delete, class:"btn btn-primary", data: { confirm: 'Are you sure?' } %></td>
+                  </tr>
+               <% end %>
+            </tbody>
 
-  <tbody>
-    <% @patients.each do |patient| %>
-      <tr>
-        <td><%= patient.first_name %></td>
-        <td><%= patient.last_name %></td>
-        <td><%= patient.dob %></td>
-        <td><%= patient.mobile_phone %></td>
-        <td><%= patient.email %></td>
-        <td><%= patient.sex %></td>
-        <td><%= link_to 'Show', patient %></td>
-        <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
-        <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+         </table>
+      </div>
+   </div>
+</div>
 
-<br>
 
-<%= link_to 'New Patient', new_patient_path %>
+<%= render "shared/footer" %>

@@ -1,3 +1,3 @@
 class Allergy < ApplicationRecord
-  belongs_to :record
+   belongs_to :patient
 end

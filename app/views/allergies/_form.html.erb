@@ -32,8 +32,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :record_id %>
-    <%= form.text_field :record_id %>
+    <%= form.label :patient_id %>
+    <%= form.select('patient_id', options_for_select(@patients.collect{ |p| [ p.first_name, p.id ] })) %>
   </div>
 
   <div class="actions">

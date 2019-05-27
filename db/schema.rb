@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_24_000702) do
+ActiveRecord::Schema.define(version: 2019_05_24_200437) do
 
   create_table "allergies", force: :cascade do |t|
     t.string "allergen"
     t.string "reaction"
     t.string "severity"
     t.text "note"
-    t.integer "record_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["record_id"], name: "index_allergies_on_record_id"
+    t.integer "patient_id"
+    t.index ["patient_id"], name: "index_allergies_on_patient_id"
   end
 
   create_table "medications", force: :cascade do |t|
@@ -31,10 +31,10 @@ ActiveRecord::Schema.define(version: 2019_05_24_000702) do
     t.string "reason_taking"
     t.string "side_effects"
     t.text "note"
-    t.integer "record_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["record_id"], name: "index_medications_on_record_id"
+    t.integer "patient_id"
+    t.index ["patient_id"], name: "index_medications_on_patient_id"
   end
 
   create_table "patients", force: :cascade do |t|
@@ -46,14 +46,6 @@ ActiveRecord::Schema.define(version: 2019_05_24_000702) do
     t.string "sex"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "records", force: :cascade do |t|
-    t.string "category"
-    t.integer "patient_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["patient_id"], name: "index_records_on_patient_id"
   end
 
   create_table "users", force: :cascade do |t|

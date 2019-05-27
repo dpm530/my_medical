@@ -1,6 +1,13 @@
-<h1>Editing Medication</h1>
+<%= render "shared/navbar_signed_in" %>
 
-<%= render 'form', medication: @medication %>
+<div class="container py-5">
+   <div class="row">
+      <div id="blocks" class="col-md-5 mx-auto border py-4">
+         <h1>Editing Medication</h1>
+         <%= render 'form', medication: @medication %>
+         <%= link_to 'Show', @medication %> 
+      </div>
+   </div>
+</div>
 
-<%= link_to 'Show', @medication %> |
-<%= link_to 'Back', medications_path %>
+<%= render "shared/footer" %>
