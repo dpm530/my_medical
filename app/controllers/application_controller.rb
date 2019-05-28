@@ -8,7 +8,11 @@ class ApplicationController < ActionController::Base
    private
 
       def after_sign_in_path_for(resource)
-         users_path
+         if resource.class == User
+            users_path
+         elsif resource.class == AdminUser
+            admin_root_path
+         end
       end
 
       def after_sign_out_path_for(resource)
@@ -19,13 +23,21 @@ class ApplicationController < ActionController::Base
          users_path
       end
 
+      # def authenticate_admin_user!
+      #    if admin_user_signed_in?
+      #       super
+      #    else
+      #       redirect_to root_path
+      #    end
+      # end
+
 
    protected
 
-   def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :first_name, :last_name, :password, :password_confirmation])
-      devise_parameter_sanitizer.permit(:account_update, keys: [:email, :first_name, :last_name, :password, :password_confirmation, :current_password])
-   end
+      def configure_permitted_parameters
+         devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :first_name, :last_name, :password, :password_confirmation])
+         devise_parameter_sanitizer.permit(:account_update, keys: [:email, :first_name, :last_name, :password, :password_confirmation, :current_password])
+      end
 
 
 end

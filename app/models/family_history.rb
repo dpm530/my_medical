@@ -1,0 +1,2 @@
+class FamilyHistory < ApplicationRecord
+end

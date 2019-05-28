@@ -1,0 +1,17 @@
+<%= form_with(model: general_information, local: true) do |form| %>
+  <% if general_information.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(general_information.errors.count, "error") %> prohibited this general_information from being saved:</h2>
+
+      <ul>
+      <% general_information.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Family Histories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @family_histories.each do |family_history| %>
+      <tr>
+        <td><%= link_to 'Show', family_history %></td>
+        <td><%= link_to 'Edit', edit_family_history_path(family_history) %></td>
+        <td><%= link_to 'Destroy', family_history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Family History', new_family_history_path %>

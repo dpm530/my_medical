@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Health Insurances</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @health_insurances.each do |health_insurance| %>
+      <tr>
+        <td><%= link_to 'Show', health_insurance %></td>
+        <td><%= link_to 'Edit', edit_health_insurance_path(health_insurance) %></td>
+        <td><%= link_to 'Destroy', health_insurance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Health Insurance', new_health_insurance_path %>

@@ -10,7 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_24_200437) do
+ActiveRecord::Schema.define(version: 2019_05_28_224912) do
+
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string "namespace"
+    t.text "body"
+    t.string "resource_type"
+    t.integer "resource_id"
+    t.string "author_type"
+    t.integer "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
+    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
+    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+  end
+
+  create_table "admin_users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_admin_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
 
   create_table "allergies", force: :cascade do |t|
     t.string "allergen"
@@ -21,6 +47,101 @@ ActiveRecord::Schema.define(version: 2019_05_24_200437) do
     t.datetime "updated_at", null: false
     t.integer "patient_id"
     t.index ["patient_id"], name: "index_allergies_on_patient_id"
+  end
+
+  create_table "diagnoses", force: :cascade do |t|
+    t.string "diagnosis"
+    t.string "treatment"
+    t.date "onset"
+    t.text "note"
+    t.integer "patient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["patient_id"], name: "index_diagnoses_on_patient_id"
+  end
+
+  create_table "emergency_contacts", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "relationship"
+    t.string "phone_1"
+    t.string "phone_2"
+    t.string "email"
+    t.string "address_line_1"
+    t.string "address_line_2"
+    t.string "city"
+    t.string "state"
+    t.string "zipcode"
+    t.text "note"
+    t.integer "patient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["patient_id"], name: "index_emergency_contacts_on_patient_id"
+  end
+
+  create_table "family_histories", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "relationship"
+    t.string "medical_history"
+    t.date "dob"
+    t.date "dod"
+    t.text "note"
+    t.integer "patient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["patient_id"], name: "index_family_histories_on_patient_id"
+  end
+
+  create_table "general_informations", force: :cascade do |t|
+    t.string "employer"
+    t.string "ocupation"
+    t.date "dob"
+    t.string "blood_type"
+    t.string "height"
+    t.string "weight"
+    t.string "organ_donor"
+    t.string "exercise"
+    t.string "alcohol"
+    t.string "tobacco"
+    t.string "drugs"
+    t.text "note"
+    t.integer "patient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["patient_id"], name: "index_general_informations_on_patient_id"
+  end
+
+  create_table "health_insurances", force: :cascade do |t|
+    t.string "company"
+    t.string "phone"
+    t.string "id_number"
+    t.string "coverage"
+    t.string "copay"
+    t.string "address_line_1"
+    t.string "address_line_2"
+    t.string "city"
+    t.string "state"
+    t.string "zipcode"
+    t.text "note"
+    t.integer "patient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["patient_id"], name: "index_health_insurances_on_patient_id"
+  end
+
+  create_table "immunizations", force: :cascade do |t|
+    t.string "vaccine"
+    t.string "administered_by"
+    t.string "dosage"
+    t.string "manufacturer"
+    t.date "received_on"
+    t.date "expires_on"
+    t.text "note"
+    t.integer "patient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["patient_id"], name: "index_immunizations_on_patient_id"
   end
 
   create_table "medications", force: :cascade do |t|
@@ -40,12 +161,15 @@ ActiveRecord::Schema.define(version: 2019_05_24_200437) do
   create_table "patients", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.date "dob"
-    t.string "mobile_phone"
     t.string "email"
-    t.string "sex"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "phone"
+    t.string "address_line_1"
+    t.string "address_line_2"
+    t.string "city"
+    t.string "state"
+    t.string "zipcode"
   end
 
   create_table "users", force: :cascade do |t|
