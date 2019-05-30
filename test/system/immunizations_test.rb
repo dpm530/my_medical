@@ -14,6 +14,14 @@ class ImmunizationsTest < ApplicationSystemTestCase
     visit immunizations_url
     click_on "New Immunization"
 
+    fill_in "Administered by", with: @immunization.administered_by
+    fill_in "Dosage", with: @immunization.dosage
+    fill_in "Expired on", with: @immunization.expired_on
+    fill_in "Manufacturer", with: @immunization.manufacturer
+    fill_in "Note", with: @immunization.note
+    fill_in "Patient", with: @immunization.patient_id
+    fill_in "Received on", with: @immunization.received_on
+    fill_in "Vaccine", with: @immunization.vaccine
     click_on "Create Immunization"
 
     assert_text "Immunization was successfully created"
@@ -24,6 +32,14 @@ class ImmunizationsTest < ApplicationSystemTestCase
     visit immunizations_url
     click_on "Edit", match: :first
 
+    fill_in "Administered by", with: @immunization.administered_by
+    fill_in "Dosage", with: @immunization.dosage
+    fill_in "Expired on", with: @immunization.expired_on
+    fill_in "Manufacturer", with: @immunization.manufacturer
+    fill_in "Note", with: @immunization.note
+    fill_in "Patient", with: @immunization.patient_id
+    fill_in "Received on", with: @immunization.received_on
+    fill_in "Vaccine", with: @immunization.vaccine
     click_on "Update Immunization"
 
     assert_text "Immunization was successfully updated"

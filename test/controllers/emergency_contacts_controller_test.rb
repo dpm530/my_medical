@@ -17,7 +17,7 @@ class EmergencyContactsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create emergency_contact" do
     assert_difference('EmergencyContact.count') do
-      post emergency_contacts_url, params: { emergency_contact: {  } }
+      post emergency_contacts_url, params: { emergency_contact: { address_line_1: @emergency_contact.address_line_1, address_line_2: @emergency_contact.address_line_2, city: @emergency_contact.city, email: @emergency_contact.email, first_name: @emergency_contact.first_name, last_name: @emergency_contact.last_name, note: @emergency_contact.note, phone1: @emergency_contact.phone1, phone2: @emergency_contact.phone2, relationship: @emergency_contact.relationship, state: @emergency_contact.state, zipcode: @emergency_contact.zipcode } }
     end
 
     assert_redirected_to emergency_contact_url(EmergencyContact.last)
@@ -34,7 +34,7 @@ class EmergencyContactsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update emergency_contact" do
-    patch emergency_contact_url(@emergency_contact), params: { emergency_contact: {  } }
+    patch emergency_contact_url(@emergency_contact), params: { emergency_contact: { address_line_1: @emergency_contact.address_line_1, address_line_2: @emergency_contact.address_line_2, city: @emergency_contact.city, email: @emergency_contact.email, first_name: @emergency_contact.first_name, last_name: @emergency_contact.last_name, note: @emergency_contact.note, phone1: @emergency_contact.phone1, phone2: @emergency_contact.phone2, relationship: @emergency_contact.relationship, state: @emergency_contact.state, zipcode: @emergency_contact.zipcode } }
     assert_redirected_to emergency_contact_url(@emergency_contact)
   end
 

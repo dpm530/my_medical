@@ -17,7 +17,7 @@ class GeneralInformationsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create general_information" do
     assert_difference('GeneralInformation.count') do
-      post general_informations_url, params: { general_information: {  } }
+      post general_informations_url, params: { general_information: { alcohol: @general_information.alcohol, allergies: @general_information.allergies, blood_type: @general_information.blood_type, drugs: @general_information.drugs, exercise: @general_information.exercise, height: @general_information.height, note: @general_information.note, organ_donor: @general_information.organ_donor, patient: @general_information.patient, tobacco: @general_information.tobacco, weight: @general_information.weight } }
     end
 
     assert_redirected_to general_information_url(GeneralInformation.last)
@@ -34,7 +34,7 @@ class GeneralInformationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update general_information" do
-    patch general_information_url(@general_information), params: { general_information: {  } }
+    patch general_information_url(@general_information), params: { general_information: { alcohol: @general_information.alcohol, allergies: @general_information.allergies, blood_type: @general_information.blood_type, drugs: @general_information.drugs, exercise: @general_information.exercise, height: @general_information.height, note: @general_information.note, organ_donor: @general_information.organ_donor, patient: @general_information.patient, tobacco: @general_information.tobacco, weight: @general_information.weight } }
     assert_redirected_to general_information_url(@general_information)
   end
 

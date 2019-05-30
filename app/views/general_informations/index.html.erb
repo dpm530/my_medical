@@ -5,6 +5,17 @@
 <table>
   <thead>
     <tr>
+      <th>Blood type</th>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>Allergies</th>
+      <th>Organ donor</th>
+      <th>Exercise</th>
+      <th>Alcohol</th>
+      <th>Tobacco</th>
+      <th>Drugs</th>
+      <th>Note</th>
+      <th>Patient</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,6 +23,17 @@
   <tbody>
     <% @general_informations.each do |general_information| %>
       <tr>
+        <td><%= general_information.blood_type %></td>
+        <td><%= general_information.height %></td>
+        <td><%= general_information.weight %></td>
+        <td><%= general_information.allergies %></td>
+        <td><%= general_information.organ_donor %></td>
+        <td><%= general_information.exercise %></td>
+        <td><%= general_information.alcohol %></td>
+        <td><%= general_information.tobacco %></td>
+        <td><%= general_information.drugs %></td>
+        <td><%= general_information.note %></td>
+        <td><%= general_information.patient %></td>
         <td><%= link_to 'Show', general_information %></td>
         <td><%= link_to 'Edit', edit_general_information_path(general_information) %></td>
         <td><%= link_to 'Destroy', general_information, method: :delete, data: { confirm: 'Are you sure?' } %></td>

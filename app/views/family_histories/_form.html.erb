@@ -11,6 +11,41 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :relationship %>
+    <%= form.text_field :relationship %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dob %>
+    <%= form.date_select :dob %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dod %>
+    <%= form.date_select :dod %>
+  </div>
+
+  <div class="field">
+    <%= form.label :medical_history %>
+    <%= form.text_field :medical_history %>
+  </div>
+
+  <div class="field">
+    <%= form.label :patient_id %>
+    <%= form.select('patient_id', options_for_select(@patients.collect{ |p| [ p.first_name, p.id ] })) %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

@@ -1,5 +1,12 @@
-<h1>New Emergency Contact</h1>
+<%= render "shared/navbar_signed_in" %>
 
-<%= render 'form', emergency_contact: @emergency_contact %>
+<div class="container py-5">
+   <div class="row">
+      <div id="blocks" class="col-md-5 mx-auto border py-4">
+         <h1>New Emergency Contact</h1>
+         <%= render 'form', emergency_contact: @emergency_contact %>
+      </div>
+   </div>
+</div>
 
-<%= link_to 'Back', emergency_contacts_path %>
+<%= render "shared/footer" %>

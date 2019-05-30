@@ -1,4 +1,59 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>Blood type:</strong>
+  <%= @general_information.blood_type %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @general_information.height %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @general_information.weight %>
+</p>
+
+<p>
+  <strong>Allergies:</strong>
+  <%= @general_information.allergies %>
+</p>
+
+<p>
+  <strong>Organ donor:</strong>
+  <%= @general_information.organ_donor %>
+</p>
+
+<p>
+  <strong>Exercise:</strong>
+  <%= @general_information.exercise %>
+</p>
+
+<p>
+  <strong>Alcohol:</strong>
+  <%= @general_information.alcohol %>
+</p>
+
+<p>
+  <strong>Tobacco:</strong>
+  <%= @general_information.tobacco %>
+</p>
+
+<p>
+  <strong>Drugs:</strong>
+  <%= @general_information.drugs %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @general_information.note %>
+</p>
+
+<p>
+  <strong>Patient:</strong>
+  <%= @general_information.patient %>
+</p>
+
 <%= link_to 'Edit', edit_general_information_path(@general_information) %> |
 <%= link_to 'Back', general_informations_path %>

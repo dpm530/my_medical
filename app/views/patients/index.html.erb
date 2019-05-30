@@ -14,10 +14,7 @@
                <tr>
                   <th>First name</th>
                   <th>Last name</th>
-                  <th>Dob</th>
-                  <th>Mobile phone</th>
                   <th>Email</th>
-                  <th>Sex</th>
                   <th colspan="3">Actions</th>
                </tr>
             </thead>
@@ -27,10 +24,7 @@
                   <tr>
                      <td><%= patient.first_name %></td>
                      <td><%= patient.last_name %></td>
-                     <td><%= patient.dob %></td>
-                     <td><%= patient.mobile_phone %></td>
                      <td><%= patient.email %></td>
-                     <td><%= patient.sex %></td>
                      <td><%= link_to 'Show', patient, class:'btn btn-primary' %></td>
                      <td><%= link_to 'Edit', edit_patient_path(patient), class:'btn btn-primary' %></td>
                      <td><%= link_to 'Destroy', patient, method: :delete, class:"btn btn-primary", data: { confirm: 'Are you sure?' } %></td>

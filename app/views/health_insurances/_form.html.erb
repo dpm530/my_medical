@@ -11,6 +11,41 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= form.label :company %>
+    <%= form.text_field :company %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.text_field :phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :id_number %>
+    <%= form.text_field :id_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :group_number %>
+    <%= form.text_field :group_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :coverage %>
+    <%= form.text_field :coverage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :copays %>
+    <%= form.text_field :copays %>
+  </div>
+
+  <div class="field">
+    <%= form.label :patient_id %>
+    <%= form.select('patient_id', options_for_select(@patients.collect{ |p| [ p.first_name, p.id ] })) %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

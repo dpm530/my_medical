@@ -14,6 +14,18 @@ class EmergencyContactsTest < ApplicationSystemTestCase
     visit emergency_contacts_url
     click_on "New Emergency Contact"
 
+    fill_in "Address line 1", with: @emergency_contact.address_line_1
+    fill_in "Address line 2", with: @emergency_contact.address_line_2
+    fill_in "City", with: @emergency_contact.city
+    fill_in "Email", with: @emergency_contact.email
+    fill_in "First name", with: @emergency_contact.first_name
+    fill_in "Last name", with: @emergency_contact.last_name
+    fill_in "Note", with: @emergency_contact.note
+    fill_in "Phone1", with: @emergency_contact.phone1
+    fill_in "Phone2", with: @emergency_contact.phone2
+    fill_in "Relationship", with: @emergency_contact.relationship
+    fill_in "State", with: @emergency_contact.state
+    fill_in "Zipcode", with: @emergency_contact.zipcode
     click_on "Create Emergency contact"
 
     assert_text "Emergency contact was successfully created"
@@ -24,6 +36,18 @@ class EmergencyContactsTest < ApplicationSystemTestCase
     visit emergency_contacts_url
     click_on "Edit", match: :first
 
+    fill_in "Address line 1", with: @emergency_contact.address_line_1
+    fill_in "Address line 2", with: @emergency_contact.address_line_2
+    fill_in "City", with: @emergency_contact.city
+    fill_in "Email", with: @emergency_contact.email
+    fill_in "First name", with: @emergency_contact.first_name
+    fill_in "Last name", with: @emergency_contact.last_name
+    fill_in "Note", with: @emergency_contact.note
+    fill_in "Phone1", with: @emergency_contact.phone1
+    fill_in "Phone2", with: @emergency_contact.phone2
+    fill_in "Relationship", with: @emergency_contact.relationship
+    fill_in "State", with: @emergency_contact.state
+    fill_in "Zipcode", with: @emergency_contact.zipcode
     click_on "Update Emergency contact"
 
     assert_text "Emergency contact was successfully updated"

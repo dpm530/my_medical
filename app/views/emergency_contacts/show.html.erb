@@ -1,4 +1,64 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>First name:</strong>
+  <%= @emergency_contact.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @emergency_contact.last_name %>
+</p>
+
+<p>
+  <strong>Relationship:</strong>
+  <%= @emergency_contact.relationship %>
+</p>
+
+<p>
+  <strong>Phone1:</strong>
+  <%= @emergency_contact.phone1 %>
+</p>
+
+<p>
+  <strong>Phone2:</strong>
+  <%= @emergency_contact.phone2 %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @emergency_contact.email %>
+</p>
+
+<p>
+  <strong>Address line 1:</strong>
+  <%= @emergency_contact.address_line_1 %>
+</p>
+
+<p>
+  <strong>Address line 2:</strong>
+  <%= @emergency_contact.address_line_2 %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @emergency_contact.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @emergency_contact.state %>
+</p>
+
+<p>
+  <strong>Zipcode:</strong>
+  <%= @emergency_contact.zipcode %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @emergency_contact.note %>
+</p>
+
 <%= link_to 'Edit', edit_emergency_contact_path(@emergency_contact) %> |
 <%= link_to 'Back', emergency_contacts_path %>

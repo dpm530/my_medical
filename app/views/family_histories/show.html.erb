@@ -1,4 +1,39 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>First name:</strong>
+  <%= @family_history.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @family_history.last_name %>
+</p>
+
+<p>
+  <strong>Relationship:</strong>
+  <%= @family_history.relationship %>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @family_history.dob %>
+</p>
+
+<p>
+  <strong>Dod:</strong>
+  <%= @family_history.dod %>
+</p>
+
+<p>
+  <strong>Medical history:</strong>
+  <%= @family_history.medical_history %>
+</p>
+
+<p>
+  <strong>Patient:</strong>
+  <%= @family_history.patient %>
+</p>
+
 <%= link_to 'Edit', edit_family_history_path(@family_history) %> |
 <%= link_to 'Back', family_histories_path %>

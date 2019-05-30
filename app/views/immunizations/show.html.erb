@@ -1,4 +1,44 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>Vaccine:</strong>
+  <%= @immunization.vaccine %>
+</p>
+
+<p>
+  <strong>Received on:</strong>
+  <%= @immunization.received_on %>
+</p>
+
+<p>
+  <strong>Expired on:</strong>
+  <%= @immunization.expired_on %>
+</p>
+
+<p>
+  <strong>Administered by:</strong>
+  <%= @immunization.administered_by %>
+</p>
+
+<p>
+  <strong>Dosage:</strong>
+  <%= @immunization.dosage %>
+</p>
+
+<p>
+  <strong>Manufacturer:</strong>
+  <%= @immunization.manufacturer %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @immunization.note %>
+</p>
+
+<p>
+  <strong>Patient:</strong>
+  <%= @immunization.patient %>
+</p>
+
 <%= link_to 'Edit', edit_immunization_path(@immunization) %> |
 <%= link_to 'Back', immunizations_path %>

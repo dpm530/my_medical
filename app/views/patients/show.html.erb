@@ -9,44 +9,137 @@
                <%= link_to 'Edit', edit_patient_path(@patient), class:'nav-link' %>
             </li>
          </ul>
-         <table class="table table-hover">
-            <thead>
-               <tr>
-                  <th>First name</th>
-                  <th>Last name</th>
-                  <th>Dob</th>
-                  <th>Mobile phone</th>
-                  <th>Email</th>
-                  <th>Sex</th>
-               </tr>
-            </thead>
-            <tbody>
-                  <tr>
-                     <td><%= @patient.first_name %></td>
-                     <td><%= @patient.last_name %></td>
-                     <td><%= @patient.dob %></td>
-                     <td><%= @patient.mobile_phone %></td>
-                     <td><%= @patient.email %></td>
-                     <td><%= @patient.sex %></td>
-                  </tr>
-            </tbody>
-         </table>
+         <div class="row">
+            <div class="col-md-6">
+               <ul class="list-unstyled">
+                  <li><strong>First Name:</strong> <%= @patient.first_name %></li>
+                  <li><strong>Last Name:</strong> <%= @patient.last_name %></li>
+                  <li><strong>Email:</strong> <%= @patient.email %></li>
+                  <li><strong>Phone Number:</strong> <%= @patient.phone %></li>
+                  <li><strong>Date of Birth:</strong> <%= @patient.dob %></li>
+                  <li><strong>Employer:</strong> <%= @patient.employer %></li>
+                  <li><strong>Occupation:</strong> <%= @patient.occupation %></li>
+                  <li><strong>Sex:</strong> <%= @patient.sex %></li>
+               </ul>
+            </div>
+            <div class="col-md-6">
+               <ul class="list-unstyled">
+                  <li><strong>Address Line 1:</strong> <%= @patient.address_line_1 %></li>
+                  <li><strong>Address Line 2:</strong> <%= @patient.address_line_2 %></li>
+                  <li><strong>City:</strong> <%= @patient.city %></li>
+                  <li><strong>State:</strong> <%= @patient.state %></li>
+                  <li><strong>Zipcode:</strong> <%= @patient.zipcode %></li>
+               </ul>
+            </div>
+         </div>
       </div>
 
       <div id="blocks" class="col-md-12 mx-auto border py-4">
+
          <h3 class="mb-2">Medical Record</h3>
          <ul class="nav nav-tabs">
             <li class="nav-item">
-               <a class="nav-link active" data-toggle="tab" href="#medication">Medications</a>
+               <a class="nav-link active" data-toggle="tab" href="#general_information">General Information</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" data-toggle="tab" href="#medication">Medications</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" data-toggle="tab" href="#diagnoses">Diagnoses</a>
             </li>
             <li class="nav-item">
                <a class="nav-link" data-toggle="tab" href="#allergy">Allergies</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" data-toggle="tab" href="#emergency_contact">Emergency Contact</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" data-toggle="tab" href="#family_history">Family History</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" data-toggle="tab" href="#health_insurance">Health Insurance</a>
             </li>
          </ul>
 
          <div class="tab-content">
 
-            <div class="tab-pane container active pt-4" id="medication">
+            <div class="tab-pane container active pt-4" id="general_information">
+
+               <ul class="nav border mb-2">
+                  <li class="nav-item">
+                     <% if @general_information %>
+                        <%= link_to 'Edit', edit_general_information_path(@general_information), class:'nav-link' %>
+                     <% else %>
+                        <%= link_to 'New General Information', new_general_information_path, class:'nav-link'%>
+                     <% end %>
+                  </li>
+               </ul>
+
+               <div class="row py-4">
+
+                  <% if @general_information %>
+                     <div class="col-md-6">
+                        <p>
+                          <strong>Blood type:</strong>
+                          <%= @general_information.blood_type %>
+                        </p>
+
+                        <p>
+                          <strong>Height:</strong>
+                          <%= @general_information.height %>
+                        </p>
+
+                        <p>
+                          <strong>Weight:</strong>
+                          <%= @general_information.weight %>
+                        </p>
+
+                        <p>
+                          <strong>Allergies:</strong>
+                          <%= @general_information.allergies %>
+                        </p>
+
+                        <p>
+                          <strong>Organ donor:</strong>
+                          <%= @general_information.organ_donor %>
+                        </p>
+
+                     </div>
+
+                     <div class="col-md-6">
+
+                        <p>
+                          <strong>Exercise:</strong>
+                          <%= @general_information.exercise %>
+                        </p>
+
+                        <p>
+                          <strong>Alcohol:</strong>
+                          <%= @general_information.alcohol %>
+                        </p>
+
+                        <p>
+                          <strong>Tobacco:</strong>
+                          <%= @general_information.tobacco %>
+                        </p>
+
+                        <p>
+                          <strong>Drugs:</strong>
+                          <%= @general_information.drugs %>
+                        </p>
+
+                        <p>
+                          <strong>Note:</strong>
+                          <%= @general_information.note %>
+                        </p>
+
+                     </div>
+                  <% end %>
+               </div>
+
+            </div>
+
+            <div class="tab-pane container fade pt-4" id="medication">
 
                <ul class="nav border mb-2">
                   <li class="nav-item">
@@ -106,6 +199,44 @@
 
             </div>
 
+            <div class="tab-pane container fade pt-4" id="diagnoses">
+
+               <ul class="nav border mb-2">
+                  <li class="nav-item">
+                     <% if @diagnosis %>
+                        <%= link_to 'Edit', edit_diagnosis_path(@diagnosis), class:'nav-link' %>
+                     <% else %>
+                        <%= link_to 'New', new_diagnosis_path, class:'nav-link' %>
+                     <% end %>
+                  </li>
+               </ul>
+
+               <% if @diagnosis %>
+
+                  <p>
+                    <strong>Onset:</strong>
+                    <%= @diagnosis.onset %>
+                  </p>
+
+                  <p>
+                    <strong>Diagnosis:</strong>
+                    <%= @diagnosis.diagnosis %>
+                  </p>
+
+                  <p>
+                    <strong>Treatment:</strong>
+                    <%= @diagnosis.treatment %>
+                  </p>
+
+                  <p>
+                    <strong>Note:</strong>
+                    <%= @diagnosis.note %>
+                  </p>
+
+               <% end %>
+
+            </div>
+
             <div class="tab-pane container fade pt-4" id="allergy">
 
                <ul class="nav border mb-2">
@@ -141,6 +272,188 @@
                           <%= @allergy.note %>
                         </p>
                      <% else %>
+
+                     <% end %>
+                  </div>
+               </div>
+
+            </div>
+
+            <div class="tab-pane container fade pt-4" id="emergency_contact">
+
+               <ul class="nav border mb-2">
+                  <li class="nav-item">
+                     <% if @emergency_contact %>
+                        <%= link_to 'Edit', edit_emergency_contact_path(@emergency_contact), class:'nav-link' %>
+                     <% else %>
+                        <%= link_to 'New', new_emergency_contact_path, class:'nav-link' %>
+                     <% end %>
+                  </li>
+               </ul>
+
+               <div class="row py-4">
+                  <% if @emergency_contact %>
+                     <div class="col-md-6">
+                        <p>
+                          <strong>First name:</strong>
+                          <%= @emergency_contact.first_name %>
+                        </p>
+
+                        <p>
+                          <strong>Last name:</strong>
+                          <%= @emergency_contact.last_name %>
+                        </p>
+
+                        <p>
+                          <strong>Relationship:</strong>
+                          <%= @emergency_contact.relationship %>
+                        </p>
+
+                        <p>
+                          <strong>Phone1:</strong>
+                          <%= @emergency_contact.phone1 %>
+                        </p>
+
+                        <p>
+                          <strong>Phone2:</strong>
+                          <%= @emergency_contact.phone2 %>
+                        </p>
+
+                        <p>
+                          <strong>Email:</strong>
+                          <%= @emergency_contact.email %>
+                        </p>
+                     </div>
+                     <div class="col-md-6">
+                        <p>
+                          <strong>Address line 1:</strong>
+                          <%= @emergency_contact.address_line_1 %>
+                        </p>
+
+                        <p>
+                          <strong>Address line 2:</strong>
+                          <%= @emergency_contact.address_line_2 %>
+                        </p>
+
+                        <p>
+                          <strong>City:</strong>
+                          <%= @emergency_contact.city %>
+                        </p>
+
+                        <p>
+                          <strong>State:</strong>
+                          <%= @emergency_contact.state %>
+                        </p>
+
+                        <p>
+                          <strong>Zipcode:</strong>
+                          <%= @emergency_contact.zipcode %>
+                        </p>
+
+                        <p>
+                          <strong>Note:</strong>
+                          <%= @emergency_contact.note %>
+                        </p>
+                     </div>
+                  <% end %>
+
+               </div>
+            </div>
+
+            <div class="tab-pane container fade pt-4" id="family_history">
+
+               <ul class="nav border mb-2">
+                  <li class="nav-item">
+                     <% if @family_history %>
+                        <%= link_to 'Edit', edit_family_history_path(@family_history), class:'nav-link' %>
+                     <% else %>
+                        <%= link_to 'New', new_family_history_path, class:'nav-link' %>
+                     <% end %>
+                  </li>
+               </ul>
+
+               <div class="row py-4">
+                  <div class="col-md-12">
+                     <% if @health_insurance %>
+                        <p>
+                          <strong>First name:</strong>
+                          <%= @family_history.first_name %>
+                        </p>
+
+                        <p>
+                          <strong>Last name:</strong>
+                          <%= @family_history.last_name %>
+                        </p>
+
+                        <p>
+                          <strong>Relationship:</strong>
+                          <%= @family_history.relationship %>
+                        </p>
+
+                        <p>
+                          <strong>Date of Birth:</strong>
+                          <%= @family_history.dob %>
+                        </p>
+
+                        <p>
+                          <strong>Date of Death:</strong>
+                          <%= @family_history.dod %>
+                        </p>
+
+                        <p>
+                          <strong>Medical history:</strong>
+                          <%= @family_history.medical_history %>
+                        </p>
+                     <% end %>
+                  </div>
+               </div>
+
+            </div>
+
+            <div class="tab-pane container fade pt-4" id="health_insurance">
+
+               <ul class="nav border mb-2">
+                  <li class="nav-item">
+                     <% if @health_insurance %>
+                        <%= link_to 'Edit', edit_health_insurance_path(@health_insurance), class:'nav-link' %>
+                     <% else %>
+                        <%= link_to 'New', new_health_insurance_path, class:'nav-link' %>
+                     <% end %>
+                  </li>
+               </ul>
+
+               <div class="row py-4">
+                  <div class="col-md-12">
+                     <% if @health_insurance %>
+                        <p>
+                          <strong>Company:</strong>
+                          <%= @health_insurance.company %>
+                        </p>
+
+                        <p>
+                          <strong>Phone:</strong>
+                          <%= @health_insurance.phone %>
+                        </p>
+
+                        <p>
+                          <strong>Id number:</strong>
+                          <%= @health_insurance.id_number %>
+                        </p>
+
+                        <p>
+                          <strong>Group number:</strong>
+                          <%= @health_insurance.group_number %>
+                        </p>
+
+                        <p>
+                          <strong>Coverage:</strong>
+                          <%= @health_insurance.coverage %>
+                        </p>
+
+                        <p>
+                          <strong>Copays:</strong>
+                          <%= @health_insurance.copays %>
+                        </p>
 
                      <% end %>
                   </div>

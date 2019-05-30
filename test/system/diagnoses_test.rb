@@ -14,6 +14,11 @@ class DiagnosesTest < ApplicationSystemTestCase
     visit diagnoses_url
     click_on "New Diagnosis"
 
+    fill_in "Diagnosis", with: @diagnosis.diagnosis
+    fill_in "Note", with: @diagnosis.note
+    fill_in "Onset", with: @diagnosis.onset
+    fill_in "Patient", with: @diagnosis.patient
+    fill_in "Treatment", with: @diagnosis.treatment
     click_on "Create Diagnosis"
 
     assert_text "Diagnosis was successfully created"
@@ -24,6 +29,11 @@ class DiagnosesTest < ApplicationSystemTestCase
     visit diagnoses_url
     click_on "Edit", match: :first
 
+    fill_in "Diagnosis", with: @diagnosis.diagnosis
+    fill_in "Note", with: @diagnosis.note
+    fill_in "Onset", with: @diagnosis.onset
+    fill_in "Patient", with: @diagnosis.patient
+    fill_in "Treatment", with: @diagnosis.treatment
     click_on "Update Diagnosis"
 
     assert_text "Diagnosis was successfully updated"

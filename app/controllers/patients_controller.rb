@@ -13,6 +13,11 @@ class PatientsController < ApplicationController
       @patient=Patient.find(params[:id])
       @medication=@patient.medication
       @allergy=@patient.allergy
+      @general_information=@patient.general_information
+      @diagnosis=@patient.diagnosis
+      @emergency_contact=@patient.emergency_contact
+      @family_history=@patient.family_history
+      @health_insurance=@patient.health_insurance
    end
 
   # GET /patients/new
@@ -72,6 +77,6 @@ class PatientsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def patient_params
-      params.require(:patient).permit(:first_name, :last_name, :phone, :email, :address_line_1, :address_line_2, :city, :state, :zipcode)
+      params.require(:patient).permit(:first_name, :last_name, :phone, :email, :address_line_1, :address_line_2, :city, :state, :zipcode, :dob, :employer, :occupation, :sex)
     end
 end

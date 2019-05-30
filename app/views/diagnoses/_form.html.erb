@@ -11,6 +11,31 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= form.label :onset %>
+    <%= form.date_select :onset %>
+  </div>
+
+  <div class="field">
+    <%= form.label :diagnosis %>
+    <%= form.text_field :diagnosis %>
+  </div>
+
+  <div class="field">
+    <%= form.label :treatment %>
+    <%= form.text_field :treatment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :note %>
+    <%= form.text_area :note %>
+  </div>
+
+  <div class="field">
+    <%= form.label :patient_id %>
+    <%= form.select('patient_id', options_for_select(@patients.collect{ |p| [ p.first_name, p.id ] })) %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

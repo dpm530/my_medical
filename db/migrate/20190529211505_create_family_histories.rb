@@ -4,10 +4,9 @@ class CreateFamilyHistories < ActiveRecord::Migration[5.2]
       t.string :first_name
       t.string :last_name
       t.string :relationship
-      t.string :medical_history
       t.date :dob
       t.date :dod
-      t.text :note
+      t.string :medical_history
       t.references :patient, foreign_key: true
 
       t.timestamps

@@ -14,6 +14,13 @@ class FamilyHistoriesTest < ApplicationSystemTestCase
     visit family_histories_url
     click_on "New Family History"
 
+    fill_in "Dob", with: @family_history.dob
+    fill_in "Dod", with: @family_history.dod
+    fill_in "First name", with: @family_history.first_name
+    fill_in "Last name", with: @family_history.last_name
+    fill_in "Medical history", with: @family_history.medical_history
+    fill_in "Patient", with: @family_history.patient_id
+    fill_in "Relationship", with: @family_history.relationship
     click_on "Create Family history"
 
     assert_text "Family history was successfully created"
@@ -24,6 +31,13 @@ class FamilyHistoriesTest < ApplicationSystemTestCase
     visit family_histories_url
     click_on "Edit", match: :first
 
+    fill_in "Dob", with: @family_history.dob
+    fill_in "Dod", with: @family_history.dod
+    fill_in "First name", with: @family_history.first_name
+    fill_in "Last name", with: @family_history.last_name
+    fill_in "Medical history", with: @family_history.medical_history
+    fill_in "Patient", with: @family_history.patient_id
+    fill_in "Relationship", with: @family_history.relationship
     click_on "Update Family history"
 
     assert_text "Family history was successfully updated"

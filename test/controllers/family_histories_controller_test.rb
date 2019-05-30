@@ -17,7 +17,7 @@ class FamilyHistoriesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create family_history" do
     assert_difference('FamilyHistory.count') do
-      post family_histories_url, params: { family_history: {  } }
+      post family_histories_url, params: { family_history: { dob: @family_history.dob, dod: @family_history.dod, first_name: @family_history.first_name, last_name: @family_history.last_name, medical_history: @family_history.medical_history, patient_id: @family_history.patient_id, relationship: @family_history.relationship } }
     end
 
     assert_redirected_to family_history_url(FamilyHistory.last)
@@ -34,7 +34,7 @@ class FamilyHistoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update family_history" do
-    patch family_history_url(@family_history), params: { family_history: {  } }
+    patch family_history_url(@family_history), params: { family_history: { dob: @family_history.dob, dod: @family_history.dod, first_name: @family_history.first_name, last_name: @family_history.last_name, medical_history: @family_history.medical_history, patient_id: @family_history.patient_id, relationship: @family_history.relationship } }
     assert_redirected_to family_history_url(@family_history)
   end
 

@@ -11,6 +11,46 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= form.label :vaccine %>
+    <%= form.text_field :vaccine %>
+  </div>
+
+  <div class="field">
+    <%= form.label :received_on %>
+    <%= form.date_select :received_on %>
+  </div>
+
+  <div class="field">
+    <%= form.label :expired_on %>
+    <%= form.date_select :expired_on %>
+  </div>
+
+  <div class="field">
+    <%= form.label :administered_by %>
+    <%= form.text_field :administered_by %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dosage %>
+    <%= form.text_field :dosage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :manufacturer %>
+    <%= form.text_field :manufacturer %>
+  </div>
+
+  <div class="field">
+    <%= form.label :note %>
+    <%= form.text_area :note %>
+  </div>
+
+  <div class="field">
+    <%= form.label :patient_id %>
+    <%= form.text_field :patient_id %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

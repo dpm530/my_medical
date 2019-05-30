@@ -14,6 +14,13 @@ class HealthInsurancesTest < ApplicationSystemTestCase
     visit health_insurances_url
     click_on "New Health Insurance"
 
+    fill_in "Company", with: @health_insurance.company
+    fill_in "Copays", with: @health_insurance.copays
+    fill_in "Coverage", with: @health_insurance.coverage
+    fill_in "Group number", with: @health_insurance.group_number
+    fill_in "Id number", with: @health_insurance.id_number
+    fill_in "Patient", with: @health_insurance.patient_id
+    fill_in "Phone", with: @health_insurance.phone
     click_on "Create Health insurance"
 
     assert_text "Health insurance was successfully created"
@@ -24,6 +31,13 @@ class HealthInsurancesTest < ApplicationSystemTestCase
     visit health_insurances_url
     click_on "Edit", match: :first
 
+    fill_in "Company", with: @health_insurance.company
+    fill_in "Copays", with: @health_insurance.copays
+    fill_in "Coverage", with: @health_insurance.coverage
+    fill_in "Group number", with: @health_insurance.group_number
+    fill_in "Id number", with: @health_insurance.id_number
+    fill_in "Patient", with: @health_insurance.patient_id
+    fill_in "Phone", with: @health_insurance.phone
     click_on "Update Health insurance"
 
     assert_text "Health insurance was successfully updated"

@@ -14,6 +14,17 @@ class GeneralInformationsTest < ApplicationSystemTestCase
     visit general_informations_url
     click_on "New General Information"
 
+    fill_in "Alcohol", with: @general_information.alcohol
+    fill_in "Allergies", with: @general_information.allergies
+    fill_in "Blood type", with: @general_information.blood_type
+    fill_in "Drugs", with: @general_information.drugs
+    fill_in "Exercise", with: @general_information.exercise
+    fill_in "Height", with: @general_information.height
+    fill_in "Note", with: @general_information.note
+    fill_in "Organ donor", with: @general_information.organ_donor
+    fill_in "Patient", with: @general_information.patient
+    fill_in "Tobacco", with: @general_information.tobacco
+    fill_in "Weight", with: @general_information.weight
     click_on "Create General information"
 
     assert_text "General information was successfully created"
@@ -24,6 +35,17 @@ class GeneralInformationsTest < ApplicationSystemTestCase
     visit general_informations_url
     click_on "Edit", match: :first
 
+    fill_in "Alcohol", with: @general_information.alcohol
+    fill_in "Allergies", with: @general_information.allergies
+    fill_in "Blood type", with: @general_information.blood_type
+    fill_in "Drugs", with: @general_information.drugs
+    fill_in "Exercise", with: @general_information.exercise
+    fill_in "Height", with: @general_information.height
+    fill_in "Note", with: @general_information.note
+    fill_in "Organ donor", with: @general_information.organ_donor
+    fill_in "Patient", with: @general_information.patient
+    fill_in "Tobacco", with: @general_information.tobacco
+    fill_in "Weight", with: @general_information.weight
     click_on "Update General information"
 
     assert_text "General information was successfully updated"

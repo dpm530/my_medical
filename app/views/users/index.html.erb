@@ -12,7 +12,7 @@
 
          <div class="row">
             <div class="col-md-12 mx-auto">
-               <!-- <h1>Welcome, <%= current_user.first_name %> <%= current_user.last_name %></h1> -->
+               <h1>Welcome, <%= current_user.first_name %> <%= current_user.last_name %></h1>
             </div>
          </div>
          <div class="row mb-4">
@@ -22,16 +22,22 @@
                      <h3 class="mb-2">To-do-list</h3>
                   </div>
                   <div class="col-md-4">
-                     <form class="form-inline" action="">
+                     <%= render 'to_do_lists/form', to_do_list: @to_do_list %>
+                     <!-- <form class="form-inline" action="">
                         <input class="form-control mr-sm-2" type="text" >
                         <button class="btn btn-success" type="button">Add</button>
-                     </form>
+                     </form> -->
                   </div>
                   <div class="col-md-12 my-4">
-                     <div class="alert alert-success alert-dismissible">
-                        <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        <strong>Success!</strong> Indicates a successful or positive action.
-                     </div>
+                     <% if @list_items %>
+                        <% @list_items.each do |list| %>
+                           <div class="alert alert-success alert-dismissible">
+                              <!-- <button type="button" class="close" data-dismiss="alert">&times;</button> -->
+                              <a href="/to_do_lists/<%= list.id %>" class="close" data-method="delete">&times;</a>
+                              <strong><%= list.item %></strong>
+                           </div>
+                        <% end %>
+                     <% end %>
                   </div>
                </div>
             </div>
@@ -42,8 +48,12 @@
                <h3 class="mb-2">General Information</h3>
                <ul class="list-group">
                   <li class="list-group-item d-flex justify-content-between align-items-center">
-                     Patients
+                     Patient Records
                      <span class="badge badge-primary badge-pill"><%= @patients.length %></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                     General Information Records
+                     <span class="badge badge-primary badge-pill"><%= @general_informtion.length %></span>
                   </li>
                   <li class="list-group-item d-flex justify-content-between align-items-center">
                      Medication Records
@@ -52,6 +62,22 @@
                   <li class="list-group-item d-flex justify-content-between align-items-center">
                      Allergy Records
                      <span class="badge badge-primary badge-pill"><%= @allergies.length %></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                     Diagnoses Records
+                     <span class="badge badge-primary badge-pill"><%= @diagnoses.length %></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                     Emergency Contact Records
+                     <span class="badge badge-primary badge-pill"><%= @emergency_contact.length %></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                     Family History Records
+                     <span class="badge badge-primary badge-pill"><%= @family_history.length %></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                     Health Insurance Records
+                     <span class="badge badge-primary badge-pill"><%= @health_insurance.length %></span>
                   </li>
                </ul>
             </div>

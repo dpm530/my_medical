@@ -1,4 +1,39 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>Company:</strong>
+  <%= @health_insurance.company %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @health_insurance.phone %>
+</p>
+
+<p>
+  <strong>Id number:</strong>
+  <%= @health_insurance.id_number %>
+</p>
+
+<p>
+  <strong>Group number:</strong>
+  <%= @health_insurance.group_number %>
+</p>
+
+<p>
+  <strong>Coverage:</strong>
+  <%= @health_insurance.coverage %>
+</p>
+
+<p>
+  <strong>Copays:</strong>
+  <%= @health_insurance.copays %>
+</p>
+
+<p>
+  <strong>Patient:</strong>
+  <%= @health_insurance.patient %>
+</p>
+
 <%= link_to 'Edit', edit_health_insurance_path(@health_insurance) %> |
 <%= link_to 'Back', health_insurances_path %>

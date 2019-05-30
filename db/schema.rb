@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_28_224912) do
+ActiveRecord::Schema.define(version: 2019_05_29_231642) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -50,9 +50,9 @@ ActiveRecord::Schema.define(version: 2019_05_28_224912) do
   end
 
   create_table "diagnoses", force: :cascade do |t|
+    t.date "onset"
     t.string "diagnosis"
     t.string "treatment"
-    t.date "onset"
     t.text "note"
     t.integer "patient_id"
     t.datetime "created_at", null: false
@@ -64,8 +64,8 @@ ActiveRecord::Schema.define(version: 2019_05_28_224912) do
     t.string "first_name"
     t.string "last_name"
     t.string "relationship"
-    t.string "phone_1"
-    t.string "phone_2"
+    t.string "phone1"
+    t.string "phone2"
     t.string "email"
     t.string "address_line_1"
     t.string "address_line_2"
@@ -73,9 +73,9 @@ ActiveRecord::Schema.define(version: 2019_05_28_224912) do
     t.string "state"
     t.string "zipcode"
     t.text "note"
-    t.integer "patient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "patient_id"
     t.index ["patient_id"], name: "index_emergency_contacts_on_patient_id"
   end
 
@@ -83,10 +83,9 @@ ActiveRecord::Schema.define(version: 2019_05_28_224912) do
     t.string "first_name"
     t.string "last_name"
     t.string "relationship"
-    t.string "medical_history"
     t.date "dob"
     t.date "dod"
-    t.text "note"
+    t.string "medical_history"
     t.integer "patient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -94,21 +93,19 @@ ActiveRecord::Schema.define(version: 2019_05_28_224912) do
   end
 
   create_table "general_informations", force: :cascade do |t|
-    t.string "employer"
-    t.string "ocupation"
-    t.date "dob"
     t.string "blood_type"
     t.string "height"
     t.string "weight"
+    t.string "allergies"
     t.string "organ_donor"
     t.string "exercise"
     t.string "alcohol"
     t.string "tobacco"
     t.string "drugs"
     t.text "note"
-    t.integer "patient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "patient_id"
     t.index ["patient_id"], name: "index_general_informations_on_patient_id"
   end
 
@@ -116,14 +113,9 @@ ActiveRecord::Schema.define(version: 2019_05_28_224912) do
     t.string "company"
     t.string "phone"
     t.string "id_number"
+    t.string "group_number"
     t.string "coverage"
-    t.string "copay"
-    t.string "address_line_1"
-    t.string "address_line_2"
-    t.string "city"
-    t.string "state"
-    t.string "zipcode"
-    t.text "note"
+    t.string "copays"
     t.integer "patient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -132,11 +124,11 @@ ActiveRecord::Schema.define(version: 2019_05_28_224912) do
 
   create_table "immunizations", force: :cascade do |t|
     t.string "vaccine"
+    t.date "received_on"
+    t.date "expired_on"
     t.string "administered_by"
     t.string "dosage"
     t.string "manufacturer"
-    t.date "received_on"
-    t.date "expires_on"
     t.text "note"
     t.integer "patient_id"
     t.datetime "created_at", null: false
@@ -170,6 +162,18 @@ ActiveRecord::Schema.define(version: 2019_05_28_224912) do
     t.string "city"
     t.string "state"
     t.string "zipcode"
+    t.date "dob"
+    t.string "employer"
+    t.string "occupation"
+    t.string "sex"
+  end
+
+  create_table "to_do_lists", force: :cascade do |t|
+    t.string "item"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_to_do_lists_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

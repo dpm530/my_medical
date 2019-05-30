@@ -4,8 +4,8 @@ class CreateEmergencyContacts < ActiveRecord::Migration[5.2]
       t.string :first_name
       t.string :last_name
       t.string :relationship
-      t.string :phone_1
-      t.string :phone_2
+      t.string :phone1
+      t.string :phone2
       t.string :email
       t.string :address_line_1
       t.string :address_line_2
