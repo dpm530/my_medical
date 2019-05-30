@@ -12,7 +12,9 @@ class UsersController < ApplicationController
       @family_history=FamilyHistory.all
       @health_insurance=HealthInsurance.all
 
-      @list_items=current_user.to_do_lists
+      if current_user
+         @list_items=current_user.to_do_lists
+      end   
    end
 
 end
