@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_30_101323) do
+ActiveRecord::Schema.define(version: 2019_06_02_195106) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -171,6 +171,27 @@ ActiveRecord::Schema.define(version: 2019_05_30_101323) do
     t.string "employer"
     t.string "occupation"
     t.string "sex"
+  end
+
+  create_table "progress_notes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "patient_id"
+    t.date "date"
+    t.time "time"
+    t.integer "duration"
+    t.string "location"
+    t.string "mental_status"
+    t.string "symptoms"
+    t.string "dx"
+    t.string "prognosis"
+    t.string "progress_to_date"
+    t.string "tx_plan"
+    t.text "progress_note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "type"
+    t.index ["patient_id"], name: "index_progress_notes_on_patient_id"
+    t.index ["user_id"], name: "index_progress_notes_on_user_id"
   end
 
   create_table "to_do_lists", force: :cascade do |t|

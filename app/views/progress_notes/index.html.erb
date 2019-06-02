@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Progress Notes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Patient</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Duration</th>
+      <th>Location</th>
+      <th>Mental status</th>
+      <th>Symptoms</th>
+      <th>Dx</th>
+      <th>Prognosis</th>
+      <th>Progress to date</th>
+      <th>Tx plan</th>
+      <th>Progress note</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @progress_notes.each do |progress_note| %>
+      <tr>
+        <td><%= progress_note.user %></td>
+        <td><%= progress_note.patient %></td>
+        <td><%= progress_note.date %></td>
+        <td><%= progress_note.time %></td>
+        <td><%= progress_note.duration %></td>
+        <td><%= progress_note.location %></td>
+        <td><%= progress_note.mental_status %></td>
+        <td><%= progress_note.symptoms %></td>
+        <td><%= progress_note.dx %></td>
+        <td><%= progress_note.prognosis %></td>
+        <td><%= progress_note.progress_to_date %></td>
+        <td><%= progress_note.tx_plan %></td>
+        <td><%= progress_note.progress_note %></td>
+        <td><%= link_to 'Show', progress_note %></td>
+        <td><%= link_to 'Edit', edit_progress_note_path(progress_note) %></td>
+        <td><%= link_to 'Destroy', progress_note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Progress Note', new_progress_note_path %>

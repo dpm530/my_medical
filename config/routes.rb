@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :progress_notes
    root 'application#index'
 
    devise_for :admin_users, ActiveAdmin::Devise.config

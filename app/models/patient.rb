@@ -7,6 +7,7 @@ class Patient < ApplicationRecord
    has_one :family_history
    has_one :emergency_contact
    has_one :diagnosis
-   
+   has_many :progress_notes
+
 
 end

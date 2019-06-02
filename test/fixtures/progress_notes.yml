@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  patient: one
+  date: 2019-06-02
+  time: 2019-06-02 13:59:51
+  duration: 1
+  location: MyString
+  mental_status: MyString
+  symptoms: MyString
+  dx: MyString
+  prognosis: MyString
+  progress_to_date: MyString
+  tx_plan: MyString
+  progress_note: MyText
+
+two:
+  user: two
+  patient: two
+  date: 2019-06-02
+  time: 2019-06-02 13:59:51
+  duration: 1
+  location: MyString
+  mental_status: MyString
+  symptoms: MyString
+  dx: MyString
+  prognosis: MyString
+  progress_to_date: MyString
+  tx_plan: MyString
+  progress_note: MyText

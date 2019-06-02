@@ -18,6 +18,7 @@ class PatientsController < ApplicationController
       @emergency_contact=@patient.emergency_contact
       @family_history=@patient.family_history
       @health_insurance=@patient.health_insurance
+      @progress_notes=@patient.progress_notes
    end
 
   # GET /patients/new
