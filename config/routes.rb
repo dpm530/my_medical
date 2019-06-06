@@ -8,7 +8,11 @@ Rails.application.routes.draw do
 
    devise_for :users
 
-   resources :users
+   resources :users do
+      collection do
+         get 'show_staff' => 'users#show_staff'
+      end
+   end
 
    resources :treatment_plan_notes
    resources :intake_notes

@@ -3,16 +3,15 @@
 <div class="container py-5">
    <div class="row">
       <div id="blocks" class="col-md-5 mx-auto border py-4">
-         <p id="notice"><%= notice %></p>
 
          <p>
-           <strong>User:</strong>
-           <%= @treatment_plan_note.user %>
+           <strong>Clinician:</strong>
+           <%= @treatment_plan_note.user.first_name %> <%= @treatment_plan_note.user.last_name %>
          </p>
 
          <p>
            <strong>Patient:</strong>
-           <%= @treatment_plan_note.patient %>
+           <%= @treatment_plan_note.patient.first_name %> <%= @treatment_plan_note.patient.last_name %>
          </p>
 
          <p>

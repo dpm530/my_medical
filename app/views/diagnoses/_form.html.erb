@@ -11,32 +11,32 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :onset %>
-    <%= form.date_select :onset %>
+    <%= form.date_select :onset, class:'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :diagnosis %>
-    <%= form.text_field :diagnosis %>
+    <%= form.text_field :diagnosis, class:'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :treatment %>
-    <%= form.text_field :treatment %>
+    <%= form.text_field :treatment, class:'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :note %>
-    <%= form.text_area :note %>
+    <%= form.text_area :note, class:'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :patient_id %>
-    <%= form.select('patient_id', options_for_select(@patients.collect{ |p| [ p.first_name, p.id ] })) %>
+    <%= form.select('patient_id', options_for_select(@patients.collect{ |p| [ p.first_name, p.id ] }), class:'form-control') %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Update', class:'btn btn-primary' %>
   </div>
 <% end %>

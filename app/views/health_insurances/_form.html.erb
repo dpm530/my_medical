@@ -11,42 +11,42 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :company %>
-    <%= form.text_field :company %>
+    <%= form.text_field :company, class:'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :phone %>
-    <%= form.text_field :phone %>
+    <%= form.text_field :phone, class:'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :id_number %>
-    <%= form.text_field :id_number %>
+    <%= form.text_field :id_number, class:'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :group_number %>
-    <%= form.text_field :group_number %>
+    <%= form.text_field :group_number, class:'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :coverage %>
-    <%= form.text_field :coverage %>
+    <%= form.text_field :coverage, class:'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :copays %>
-    <%= form.text_field :copays %>
+    <%= form.text_field :copays, class:'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :patient_id %>
-    <%= form.select('patient_id', options_for_select(@patients.collect{ |p| [ p.first_name, p.id ] })) %>
+    <%= form.select('patient_id', options_for_select(@patients.collect{ |p| [ p.first_name, p.id ] }), class:'form-control') %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Update', class:'btn btn-primary' %>
   </div>
 <% end %>

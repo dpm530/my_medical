@@ -14,7 +14,11 @@ class UsersController < ApplicationController
 
       if current_user
          @list_items=current_user.to_do_lists
-      end   
+      end
+   end
+
+   def show_staff
+      @users=User.all
    end
 
 end

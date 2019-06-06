@@ -11,47 +11,53 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :drug_name %>
-    <%= form.text_field :drug_name %>
+  <div class="row">
+     <div class="col-md-6">
+        <div class="form-group">
+          <%= form.label :drug_name %>
+          <%= form.text_field :drug_name, class:'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :dosage %>
+          <%= form.text_field :dosage, class:'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :frequency %>
+          <%= form.text_field :frequency, class:'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :began_on %>
+          <%= form.date_select :began_on, class:'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :reason_taking %>
+          <%= form.text_field :reason_taking, class:'form-control' %>
+        </div>
+     </div>
+     <div class="col-md-6">
+        <div class="form-group">
+          <%= form.label :side_effects %>
+          <%= form.text_field :side_effects, class:'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :note %>
+          <%= form.text_area :note , class:'form-control'%>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :patient_id %>
+          <%= form.select('patient_id', options_for_select(@patients.collect{ |p| [ p.first_name, p.id ] }), class:'form-control') %>
+        </div>
+     </div>
   </div>
 
-  <div class="field">
-    <%= form.label :dosage %>
-    <%= form.text_field :dosage %>
-  </div>
-
-  <div class="field">
-    <%= form.label :frequency %>
-    <%= form.text_field :frequency %>
-  </div>
-
-  <div class="field">
-    <%= form.label :began_on %>
-    <%= form.date_select :began_on %>
-  </div>
-
-  <div class="field">
-    <%= form.label :reason_taking %>
-    <%= form.text_field :reason_taking %>
-  </div>
-
-  <div class="field">
-    <%= form.label :side_effects %>
-    <%= form.text_field :side_effects %>
-  </div>
-
-  <div class="field">
-    <%= form.label :note %>
-    <%= form.text_area :note %>
-  </div>
-
-  <div class="field">
-    <%= form.label :patient_id %>
-    <%= form.select('patient_id', options_for_select(@patients.collect{ |p| [ p.first_name, p.id ] })) %>
-  </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Update', class:'btn btn-primary' %>
   </div>
 <% end %>

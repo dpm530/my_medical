@@ -1,93 +1,88 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-   <head>
-      <meta charset="utf-8">
-      <title></title>
-   </head>
-   <body>
 
-      <%= render "shared/navbar_signed_in" %>
 
-      <div class="container my-5">
+<%= render "shared/navbar_signed_in" %>
 
-         <div class="row">
-            <div class="col-md-12 mx-auto">
-               <% if current_user %>
-                  <h1>Welcome, <%= current_user.first_name %> <%= current_user.last_name %></h1>
-               <% end %>
-            </div>
+<div class="container">
+   <div class="container-fluid my-5">
+
+      <div class="row">
+         <div class="col-md-12 mx-auto">
+            <% if current_user %>
+            <h1>Welcome, <%= current_user.first_name %> <%= current_user.last_name %></h1>
+            <% end %>
          </div>
-         <div class="row mb-4">
-            <div id="blocks" class="col-md-12 border py-4">
-               <div class="row">
-                  <div class="col-md-8">
-                     <h3 class="mb-2">To-do-list</h3>
+      </div>
+      <div class="row mb-4">
+         <div id="blocks" class="col-md-12 border py-4">
+            <div class="row">
+               <div class="col-md-8">
+                  <h3 class="mb-2">To-do-list</h3>
+               </div>
+               <div class="col-md-4">
+                  <%= render 'to_do_lists/form', to_do_list: @to_do_list %>
+                  <!-- <form class="form-inline" action="">
+                     <input class="form-control mr-sm-2" type="text" >
+                     <button class="btn btn-success" type="button">Add</button>
+                  </form> -->
+               </div>
+               <div class="col-md-12 my-4">
+                  <% if @list_items %>
+                  <% @list_items.each do |list| %>
+                  <div class="alert alert-success alert-dismissible">
+                     <!-- <button type="button" class="close" data-dismiss="alert">&times;</button> -->
+                     <a href="/to_do_lists/<%= list.id %>" class="close" data-method="delete">&times;</a>
+                     <strong><%= list.item %></strong>
                   </div>
-                  <div class="col-md-4">
-                     <%= render 'to_do_lists/form', to_do_list: @to_do_list %>
-                     <!-- <form class="form-inline" action="">
-                        <input class="form-control mr-sm-2" type="text" >
-                        <button class="btn btn-success" type="button">Add</button>
-                     </form> -->
-                  </div>
-                  <div class="col-md-12 my-4">
-                     <% if @list_items %>
-                        <% @list_items.each do |list| %>
-                           <div class="alert alert-success alert-dismissible">
-                              <!-- <button type="button" class="close" data-dismiss="alert">&times;</button> -->
-                              <a href="/to_do_lists/<%= list.id %>" class="close" data-method="delete">&times;</a>
-                              <strong><%= list.item %></strong>
-                           </div>
-                        <% end %>
-                     <% end %>
-                  </div>
+                  <% end %>
+                  <% end %>
                </div>
             </div>
          </div>
-
-         <div class="row mb-4">
-            <div id="blocks" class="col-md-12 mx-auto border py-4">
-               <h3 class="mb-2">General Information</h3>
-               <ul class="list-group">
-                  <li class="list-group-item d-flex justify-content-between align-items-center">
-                     Patient Records
-                     <span class="badge badge-primary badge-pill"><%= @patients.length %></span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center">
-                     General Information Records
-                     <span class="badge badge-primary badge-pill"><%= @general_informtion.length %></span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center">
-                     Medication Records
-                     <span class="badge badge-primary badge-pill"><%= @medications.length %></span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center">
-                     Allergy Records
-                     <span class="badge badge-primary badge-pill"><%= @allergies.length %></span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center">
-                     Diagnoses Records
-                     <span class="badge badge-primary badge-pill"><%= @diagnoses.length %></span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center">
-                     Emergency Contact Records
-                     <span class="badge badge-primary badge-pill"><%= @emergency_contact.length %></span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center">
-                     Family History Records
-                     <span class="badge badge-primary badge-pill"><%= @family_history.length %></span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center">
-                     Health Insurance Records
-                     <span class="badge badge-primary badge-pill"><%= @health_insurance.length %></span>
-                  </li>
-               </ul>
-            </div>
-         </div>
-
       </div>
 
-      <%= render "shared/footer" %>
+      <div class="row mb-4">
+         <div id="blocks" class="col-md-12 mx-auto border py-4">
+            <h3 class="mb-2">General Information</h3>
+            <ul class="list-group">
+               <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Patient Records
+                  <span class="badge badge-primary badge-pill"><%= @patients.length %></span>
+               </li>
+               <li class="list-group-item d-flex justify-content-between align-items-center">
+                  General Information Records
+                  <span class="badge badge-primary badge-pill"><%= @general_informtion.length %></span>
+               </li>
+               <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Medication Records
+                  <span class="badge badge-primary badge-pill"><%= @medications.length %></span>
+               </li>
+               <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Allergy Records
+                  <span class="badge badge-primary badge-pill"><%= @allergies.length %></span>
+               </li>
+               <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Diagnoses Records
+                  <span class="badge badge-primary badge-pill"><%= @diagnoses.length %></span>
+               </li>
+               <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Emergency Contact Records
+                  <span class="badge badge-primary badge-pill"><%= @emergency_contact.length %></span>
+               </li>
+               <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Family History Records
+                  <span class="badge badge-primary badge-pill"><%= @family_history.length %></span>
+               </li>
+               <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Health Insurance Records
+                  <span class="badge badge-primary badge-pill"><%= @health_insurance.length %></span>
+               </li>
+            </ul>
+         </div>
+      </div>
 
-   </body>
-</html>
+   </div>
+
+</div>
+
+
+<%= render "shared/footer" %>
