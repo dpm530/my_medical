@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_02_195106) do
+ActiveRecord::Schema.define(version: 2019_06_05_225633) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -141,6 +141,23 @@ ActiveRecord::Schema.define(version: 2019_06_02_195106) do
     t.index ["patient_id"], name: "index_immunizations_on_patient_id"
   end
 
+  create_table "intake_notes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "patient_id"
+    t.string "note_type"
+    t.string "presenting_problem"
+    t.string "current_mental_status"
+    t.string "safety_issues"
+    t.string "background"
+    t.string "diagnosis"
+    t.date "date"
+    t.time "time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["patient_id"], name: "index_intake_notes_on_patient_id"
+    t.index ["user_id"], name: "index_intake_notes_on_user_id"
+  end
+
   create_table "medications", force: :cascade do |t|
     t.string "drug_name"
     t.string "dosage"
@@ -171,6 +188,8 @@ ActiveRecord::Schema.define(version: 2019_06_02_195106) do
     t.string "employer"
     t.string "occupation"
     t.string "sex"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_patients_on_user_id"
   end
 
   create_table "progress_notes", force: :cascade do |t|
@@ -189,7 +208,7 @@ ActiveRecord::Schema.define(version: 2019_06_02_195106) do
     t.text "progress_note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "type"
+    t.string "note_type"
     t.index ["patient_id"], name: "index_progress_notes_on_patient_id"
     t.index ["user_id"], name: "index_progress_notes_on_user_id"
   end
@@ -200,6 +219,23 @@ ActiveRecord::Schema.define(version: 2019_06_02_195106) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_to_do_lists_on_user_id"
+  end
+
+  create_table "treatment_plan_notes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "patient_id"
+    t.date "date"
+    t.time "time"
+    t.string "diagnosis"
+    t.string "presenting_problem"
+    t.string "treatment_goals"
+    t.string "objective"
+    t.string "frequency"
+    t.string "note_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["patient_id"], name: "index_treatment_plan_notes_on_patient_id"
+    t.index ["user_id"], name: "index_treatment_plan_notes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+   has_many :patients
    has_many :to_do_lists
 
       # Include default devise modules. Others available are:

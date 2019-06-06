@@ -1,0 +1,67 @@
+<%= form_with(model: treatment_plan_note, local: true) do |form| %>
+  <% if treatment_plan_note.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(treatment_plan_note.errors.count, "error") %> prohibited this treatment_plan_note from being saved:</h2>
+
+      <ul>
+      <% treatment_plan_note.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :patient_id %>
+    <%= form.select('patient_id', options_for_select(@patients.collect{ |p| [ p.first_name, p.id ] })) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.select('user_id', options_for_select(@users.collect{ |p| [ p.first_name, p.id ] })) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :time %>
+    <%= form.time_select :time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :diagnosis %>
+    <%= form.text_field :diagnosis %>
+  </div>
+
+  <div class="field">
+    <%= form.label :presenting_problem %>
+    <%= form.text_field :presenting_problem %>
+  </div>
+
+  <div class="field">
+    <%= form.label :treatment_goals %>
+    <%= form.text_field :treatment_goals %>
+  </div>
+
+  <div class="field">
+    <%= form.label :objective %>
+    <%= form.text_field :objective %>
+  </div>
+
+  <div class="field">
+    <%= form.label :frequency %>
+    <%= form.text_field :frequency %>
+  </div>
+
+  <div class="field">
+    <%= form.label :note_type %>
+    <%= form.text_field :note_type %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

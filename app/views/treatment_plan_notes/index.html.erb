@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Treatment Plan Notes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Patient</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Diagnosis</th>
+      <th>Presenting problem</th>
+      <th>Treatment goals</th>
+      <th>Objective</th>
+      <th>Frequency</th>
+      <th>Note type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @treatment_plan_notes.each do |treatment_plan_note| %>
+      <tr>
+        <td><%= treatment_plan_note.user %></td>
+        <td><%= treatment_plan_note.patient %></td>
+        <td><%= treatment_plan_note.date %></td>
+        <td><%= treatment_plan_note.time %></td>
+        <td><%= treatment_plan_note.diagnosis %></td>
+        <td><%= treatment_plan_note.presenting_problem %></td>
+        <td><%= treatment_plan_note.treatment_goals %></td>
+        <td><%= treatment_plan_note.objective %></td>
+        <td><%= treatment_plan_note.frequency %></td>
+        <td><%= treatment_plan_note.note_type %></td>
+        <td><%= link_to 'Show', treatment_plan_note %></td>
+        <td><%= link_to 'Edit', edit_treatment_plan_note_path(treatment_plan_note) %></td>
+        <td><%= link_to 'Destroy', treatment_plan_note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Treatment Plan Note', new_treatment_plan_note_path %>

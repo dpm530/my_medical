@@ -73,6 +73,6 @@ class ProgressNotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def progress_note_params
-      params.require(:progress_note).permit(:user_id, :patient_id, :date, :time, :duration, :location, :mental_status, :symptoms, :dx, :prognosis, :progress_to_date, :tx_plan, :progress_note, :type)
+      params.require(:progress_note).permit(:user_id, :patient_id, :date, :time, :duration, :location, :mental_status, :symptoms, :dx, :prognosis, :progress_to_date, :tx_plan, :progress_note, :note_type)
     end
 end

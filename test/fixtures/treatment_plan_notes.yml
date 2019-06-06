@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  patient: one
+  date: 2019-06-05
+  time: 2019-06-05 17:56:33
+  diagnosis: MyString
+  presenting_problem: MyString
+  treatment_goals: MyString
+  objective: MyString
+  frequency: MyString
+  note_type: MyString
+
+two:
+  user: two
+  patient: two
+  date: 2019-06-05
+  time: 2019-06-05 17:56:33
+  diagnosis: MyString
+  presenting_problem: MyString
+  treatment_goals: MyString
+  objective: MyString
+  frequency: MyString
+  note_type: MyString

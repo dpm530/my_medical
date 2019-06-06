@@ -1,0 +1,64 @@
+<%= render "shared/navbar_signed_in" %>
+
+<div class="container py-5">
+   <div class="row">
+      <div id="blocks" class="col-md-5 mx-auto border py-4">
+         <p id="notice"><%= notice %></p>
+
+         <p>
+           <strong>User:</strong>
+           <%= @treatment_plan_note.user %>
+         </p>
+
+         <p>
+           <strong>Patient:</strong>
+           <%= @treatment_plan_note.patient %>
+         </p>
+
+         <p>
+           <strong>Date:</strong>
+           <%= @treatment_plan_note.date %>
+         </p>
+
+         <p>
+           <strong>Time:</strong>
+           <%= @treatment_plan_note.time %>
+         </p>
+
+         <p>
+           <strong>Diagnosis:</strong>
+           <%= @treatment_plan_note.diagnosis %>
+         </p>
+
+         <p>
+           <strong>Presenting problem:</strong>
+           <%= @treatment_plan_note.presenting_problem %>
+         </p>
+
+         <p>
+           <strong>Treatment goals:</strong>
+           <%= @treatment_plan_note.treatment_goals %>
+         </p>
+
+         <p>
+           <strong>Objective:</strong>
+           <%= @treatment_plan_note.objective %>
+         </p>
+
+         <p>
+           <strong>Frequency:</strong>
+           <%= @treatment_plan_note.frequency %>
+         </p>
+
+         <p>
+           <strong>Note type:</strong>
+           <%= @treatment_plan_note.note_type %>
+         </p>
+
+         <%= link_to 'Edit', edit_treatment_plan_note_path(@treatment_plan_note) %> |
+         <%= link_to 'Back', treatment_plan_notes_path %>
+      </div>
+   </div>
+</div>
+
+<%= render "shared/footer" %>

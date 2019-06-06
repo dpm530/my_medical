@@ -18,17 +18,30 @@ class PatientsController < ApplicationController
       @emergency_contact=@patient.emergency_contact
       @family_history=@patient.family_history
       @health_insurance=@patient.health_insurance
+
+      @notes=[]
       @progress_notes=@patient.progress_notes
+      @progress_notes.each{|n| @notes<< n}
+
+      @intake_notes=@patient.intake_notes
+      @intake_notes.each{|n| @notes<< n}
+
+      @treatment_plan_notes=@patient.treatment_plan_notes
+      @treatment_plan_notes.each{|n| @notes<< n}
+
+
    end
 
-  # GET /patients/new
-  def new
-    @patient = Patient.new
-  end
+   # GET /patients/new
+   def new
+      @users=User.all
+      @patient = Patient.new
+   end
 
-  # GET /patients/1/edit
-  def edit
-  end
+   # GET /patients/1/edit
+   def edit
+      @users=User.all
+   end
 
   # POST /patients
   # POST /patients.json
@@ -78,6 +91,6 @@ class PatientsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def patient_params
-      params.require(:patient).permit(:first_name, :last_name, :phone, :email, :address_line_1, :address_line_2, :city, :state, :zipcode, :dob, :employer, :occupation, :sex)
+      params.require(:patient).permit(:first_name, :last_name, :phone, :email, :address_line_1, :address_line_2, :city, :state, :zipcode, :dob, :employer, :occupation, :sex, :user_id)
     end
 end

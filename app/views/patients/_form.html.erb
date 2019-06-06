@@ -76,6 +76,11 @@
     <%= form.text_field :zipcode %>
   </div>
 
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.select('user_id', options_for_select(@users.collect{ |p| [ p.first_name, p.id ] })) %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

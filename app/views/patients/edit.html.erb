@@ -1,6 +1,12 @@
-<h1>Editing Patient</h1>
+<%= render "shared/navbar_signed_in" %>
 
-<%= render 'form', patient: @patient %>
+<div class="container py-5">
+   <div class="row">
+      <div id="blocks" class="col-md-5 mx-auto border py-4">
+         <h1>Editing Patient</h1>
+         <%= render 'form', patient: @patient %>
+      </div>
+   </div>
+</div>
 
-<%= link_to 'Show', @patient %> |
-<%= link_to 'Back', patients_path %>
+<%= render "shared/footer" %>

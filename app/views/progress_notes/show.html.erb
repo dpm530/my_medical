@@ -1,69 +1,79 @@
-<p id="notice"><%= notice %></p>
+<%= render "shared/navbar_signed_in" %>
 
-<p>
-  <strong>User:</strong>
-  <%= @progress_note.user %>
-</p>
+<div class="container py-5">
+   <div class="row">
+      <div id="blocks" class="col-md-5 mx-auto border py-4">
+         <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Patient:</strong>
-  <%= @progress_note.patient %>
-</p>
+         <p>
+           <strong>User:</strong>
+           <%= @progress_note.user %>
+         </p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @progress_note.date %>
-</p>
+         <p>
+           <strong>Patient:</strong>
+           <%= @progress_note.patient %>
+         </p>
 
-<p>
-  <strong>Time:</strong>
-  <%= @progress_note.time %>
-</p>
+         <p>
+           <strong>Date:</strong>
+           <%= @progress_note.date %>
+         </p>
 
-<p>
-  <strong>Duration:</strong>
-  <%= @progress_note.duration %>
-</p>
+         <p>
+           <strong>Time:</strong>
+           <%= @progress_note.time %>
+         </p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @progress_note.location %>
-</p>
+         <p>
+           <strong>Duration:</strong>
+           <%= @progress_note.duration %>
+         </p>
 
-<p>
-  <strong>Mental status:</strong>
-  <%= @progress_note.mental_status %>
-</p>
+         <p>
+           <strong>Location:</strong>
+           <%= @progress_note.location %>
+         </p>
 
-<p>
-  <strong>Symptoms:</strong>
-  <%= @progress_note.symptoms %>
-</p>
+         <p>
+           <strong>Mental status:</strong>
+           <%= @progress_note.mental_status %>
+         </p>
 
-<p>
-  <strong>Dx:</strong>
-  <%= @progress_note.dx %>
-</p>
+         <p>
+           <strong>Symptoms:</strong>
+           <%= @progress_note.symptoms %>
+         </p>
 
-<p>
-  <strong>Prognosis:</strong>
-  <%= @progress_note.prognosis %>
-</p>
+         <p>
+           <strong>Dx:</strong>
+           <%= @progress_note.dx %>
+         </p>
 
-<p>
-  <strong>Progress to date:</strong>
-  <%= @progress_note.progress_to_date %>
-</p>
+         <p>
+           <strong>Prognosis:</strong>
+           <%= @progress_note.prognosis %>
+         </p>
 
-<p>
-  <strong>Tx plan:</strong>
-  <%= @progress_note.tx_plan %>
-</p>
+         <p>
+           <strong>Progress to date:</strong>
+           <%= @progress_note.progress_to_date %>
+         </p>
 
-<p>
-  <strong>Progress note:</strong>
-  <%= @progress_note.progress_note %>
-</p>
+         <p>
+           <strong>Tx plan:</strong>
+           <%= @progress_note.tx_plan %>
+         </p>
 
-<%= link_to 'Edit', edit_progress_note_path(@progress_note) %> |
-<%= link_to 'Back', progress_notes_path %>
+         <p>
+           <strong>Progress note:</strong>
+           <%= @progress_note.progress_note %>
+         </p>
+
+         <%= link_to 'Edit', edit_progress_note_path(@progress_note) %> |
+         <%= link_to 'Back', progress_notes_path %>
+      </div>
+   </div>
+</div>
+
+<%= render "shared/footer" %>

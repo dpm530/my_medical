@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Intake Notes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Patient</th>
+      <th>Note type</th>
+      <th>Presenting problem</th>
+      <th>Current mental status</th>
+      <th>Safety issues</th>
+      <th>Background</th>
+      <th>Diagnosis</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @intake_notes.each do |intake_note| %>
+      <tr>
+        <td><%= intake_note.user %></td>
+        <td><%= intake_note.patient %></td>
+        <td><%= intake_note.note_type %></td>
+        <td><%= intake_note.presenting_problem %></td>
+        <td><%= intake_note.current_mental_status %></td>
+        <td><%= intake_note.safety_issues %></td>
+        <td><%= intake_note.background %></td>
+        <td><%= intake_note.diagnosis %></td>
+        <td><%= intake_note.date %></td>
+        <td><%= intake_note.time %></td>
+        <td><%= link_to 'Show', intake_note %></td>
+        <td><%= link_to 'Edit', edit_intake_note_path(intake_note) %></td>
+        <td><%= link_to 'Destroy', intake_note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Intake Note', new_intake_note_path %>

@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :progress_notes
    root 'application#index'
 
    devise_for :admin_users, ActiveAdmin::Devise.config
@@ -11,6 +10,9 @@ Rails.application.routes.draw do
 
    resources :users
 
+   resources :treatment_plan_notes
+   resources :intake_notes
+   resources :progress_notes
    resources :to_do_lists
    resources :general_informations
    resources :health_insurances
