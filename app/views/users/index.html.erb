@@ -7,6 +7,7 @@
 
       <div class="row">
          <div class="col-md-12 mx-auto">
+            <%= user_session %>
             <% if current_user %>
             <h1>Welcome, <%= current_user.first_name %> <%= current_user.last_name %></h1>
             <% end %>
@@ -28,7 +29,7 @@
                <div class="col-md-12 my-4">
                   <% if @list_items %>
                   <% @list_items.each do |list| %>
-                  <div class="alert alert-success alert-dismissible">
+                  <div class="alert alert-primary alert-dismissible">
                      <!-- <button type="button" class="close" data-dismiss="alert">&times;</button> -->
                      <a href="/to_do_lists/<%= list.id %>" class="close" data-method="delete">&times;</a>
                      <strong><%= list.item %></strong>

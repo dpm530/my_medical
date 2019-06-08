@@ -13,6 +13,54 @@
 
    <div class="row">
      <div class="col-md-6">
+
+
+        <div class="form-group">
+          <%= form.label :mental_status %>
+          <%= form.text_field :mental_status, class:'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :symptoms %>
+          <%= form.text_area :symptoms, class:'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :dx %>
+          <%= form.text_field :dx , class:'form-control'%>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :prognosis %>
+          <%= form.text_field :prognosis, class:'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :progress_to_date %>
+          <%= form.text_field :progress_to_date, class:'form-control' %>
+        </div>
+
+        <div class="form-group">
+        <%= form.label :tx_plan %>
+        <%= form.text_field :tx_plan, class:'form-control' %>
+      </div>
+
+
+     </div>
+
+     <div class="col-md-6">
+
+        <div class="form-group">
+          <%= form.label :note_type %>
+          <%= form.text_field :note_type, class:'form-control'%>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :location %>
+          <%= form.text_field :location, class:'form-control' %>
+        </div>
+
+
         <div class="form-group">
           <%= form.label :patient_id %>
           <%= form.select('patient_id', options_for_select(@patients.collect{ |p| [ p.first_name, p.id ] }), class:'form-control') %>
@@ -37,57 +85,20 @@
           <%= form.label :duration %>
           <%= form.number_field :duration, class:'form-control' %>
         </div>
-
-        <div class="form-group">
-          <%= form.label :note_type %>
-          <%= form.text_field :note_type, class:'form-control'%>
-        </div>
-
-        <div class="form-group">
-          <%= form.label :location %>
-          <%= form.text_field :location, class:'form-control' %>
-        </div>
-     </div>
-     <div class="col-md-6">
-        <div class="form-group">
-          <%= form.label :mental_status %>
-          <%= form.text_field :mental_status, class:'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= form.label :symptoms %>
-          <%= form.text_field :symptoms, class:'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= form.label :dx %>
-          <%= form.text_field :dx , class:'form-control'%>
-        </div>
-
-        <div class="form-group">
-          <%= form.label :prognosis %>
-          <%= form.text_field :prognosis, class:'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= form.label :progress_to_date %>
-          <%= form.text_field :progress_to_date, class:'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= form.label :tx_plan %>
-          <%= form.text_field :tx_plan, class:'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= form.label :progress_note %>
-          <%= form.text_area :progress_note, class:'form-control' %>
-        </div>
      </div>
    </div>
 
+   <br>
+
+   <div class="form-group">
+     <%= form.label :progress_note %>
+     <%= form.text_area :progress_note, class:'form-control' %>
+   </div>
+
+   <hr>
+
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:'btn btn-primary' %>
   </div>
 <% end %>

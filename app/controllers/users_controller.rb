@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 
+   before_action :authenticate_user!
+
+
    def index
       @to_do_list = ToDoList.new
       @users=User.all

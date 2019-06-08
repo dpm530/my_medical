@@ -13,6 +13,43 @@
 
   <div class="row">
      <div class="col-md-6">
+
+        <div class="form-group">
+          <%= form.label :note_type %>
+          <%= form.text_field :note_type , class:'form-control'%>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :presenting_problem %>
+          <%= form.text_area :presenting_problem , class:'form-control'%>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :treatment_goals %>
+          <%= form.text_area :treatment_goals, class:'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :objective %>
+          <%= form.text_area :objective, class:'form-control' %>
+        </div>
+
+
+
+     </div>
+
+     <div class="col-md-6">
+
+        <div class="form-group">
+          <%= form.label :frequency %>
+          <%= form.text_field :frequency, class:'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :diagnosis %>
+          <%= form.text_field :diagnosis, class:'form-control' %>
+        </div>
+
         <div class="form-group">
           <%= form.label :patient_id %>
           <%= form.select('patient_id', options_for_select(@patients.collect{ |p| [ p.first_name, p.id ] }), class:'form-control') %>
@@ -33,41 +70,12 @@
           <%= form.time_select :time, class:'form-control' %>
         </div>
 
-        <div class="form-group">
-          <%= form.label :diagnosis %>
-          <%= form.text_field :diagnosis, class:'form-control' %>
-        </div>
-     </div>
-     <div class="col-md-6">
-        <div class="form-group">
-          <%= form.label :presenting_problem %>
-          <%= form.text_field :presenting_problem , class:'form-control'%>
-        </div>
-
-        <div class="form-group">
-          <%= form.label :treatment_goals %>
-          <%= form.text_field :treatment_goals, class:'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= form.label :objective %>
-          <%= form.text_field :objective, class:'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= form.label :frequency %>
-          <%= form.text_field :frequency, class:'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= form.label :note_type %>
-          <%= form.text_field :note_type , class:'form-control'%>
-        </div>
      </div>
   </div>
 
+   <hr>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:'btn btn-primary' %>
   </div>
 <% end %>
