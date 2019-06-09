@@ -7,9 +7,8 @@
 
       <div class="row">
          <div class="col-md-12 mx-auto">
-            <%= user_session %>
             <% if current_user %>
-            <h1>Welcome, <%= current_user.first_name %> <%= current_user.last_name %></h1>
+               <h1>Welcome, <%= current_user.first_name %> <%= current_user.last_name %></h1>
             <% end %>
          </div>
       </div>

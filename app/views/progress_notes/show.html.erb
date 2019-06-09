@@ -2,72 +2,76 @@
 
 <div class="container py-5">
    <div class="row">
-      <div id="blocks" class="col-md-5 mx-auto border py-4">
+      <div id="blocks" class="col-md-10 mx-auto border py-4">
+         <div class="row">
+            <div class="col-md-6">
+               <h3>Patient: <small><%= @progress_note.patient.first_name %> <%= @progress_note.patient.last_name %></small></h3>
+               <h3>Clinician: <small><%= @progress_note.user.first_name %> <%= @progress_note.user.last_name %></small></h3>
+            </div>
+            <div class="col-md-6">
+               <h3>Date: <small><%= @progress_note.date %></small></h3>
+            </div>
+         </div>
 
-         <p>
-           <strong>Clinician:</strong>
-           <%= @progress_note.user.first_name %> <%= @progress_note.user.last_name %>
-         </p>
+         <hr>
 
-         <p>
-           <strong>Patient:</strong>
-           <%= @progress_note.patient.first_name %> <%= @progress_note.patient.last_name %>
-         </p>
+         <div class="row">
+            <div class="col-md-6">
+               <p>
+                 <strong>Time:</strong>
+                 <%= @progress_note.time %>
+               </p>
 
-         <p>
-           <strong>Date:</strong>
-           <%= @progress_note.date %>
-         </p>
+               <p>
+                 <strong>Duration:</strong>
+                 <%= @progress_note.duration %>
+               </p>
 
-         <p>
-           <strong>Time:</strong>
-           <%= @progress_note.time %>
-         </p>
+               <p>
+                 <strong>Location:</strong>
+                 <%= @progress_note.location %>
+               </p>
 
-         <p>
-           <strong>Duration:</strong>
-           <%= @progress_note.duration %>
-         </p>
+               <p>
+                 <strong>Mental status:</strong>
+                 <%= @progress_note.mental_status %>
+               </p>
 
-         <p>
-           <strong>Location:</strong>
-           <%= @progress_note.location %>
-         </p>
+               <p>
+                 <strong>Symptoms:</strong>
+                 <%= @progress_note.symptoms %>
+               </p>
+            </div>
+            <div class="col-md-6">
+               <p>
+                 <strong>Dx:</strong>
+                 <%= @progress_note.dx %>
+               </p>
 
-         <p>
-           <strong>Mental status:</strong>
-           <%= @progress_note.mental_status %>
-         </p>
+               <p>
+                 <strong>Prognosis:</strong>
+                 <%= @progress_note.prognosis %>
+               </p>
 
-         <p>
-           <strong>Symptoms:</strong>
-           <%= @progress_note.symptoms %>
-         </p>
+               <p>
+                 <strong>Progress to date:</strong>
+                 <%= @progress_note.progress_to_date %>
+               </p>
 
-         <p>
-           <strong>Dx:</strong>
-           <%= @progress_note.dx %>
-         </p>
+               <p>
+                 <strong>Tx plan:</strong>
+                 <%= @progress_note.tx_plan %>
+               </p>
 
-         <p>
-           <strong>Prognosis:</strong>
-           <%= @progress_note.prognosis %>
-         </p>
+            </div>
+         </div>
 
-         <p>
-           <strong>Progress to date:</strong>
-           <%= @progress_note.progress_to_date %>
-         </p>
+         <div class="form-group">
+            <label for="progress_note"><strong>Progress Note:</strong></label>
+            <textarea class="form-control" rows="5"><%= @progress_note.progress_note %></textarea>
+         </div>
 
-         <p>
-           <strong>Tx plan:</strong>
-           <%= @progress_note.tx_plan %>
-         </p>
 
-         <p>
-           <strong>Progress note:</strong>
-           <%= @progress_note.progress_note %>
-         </p>
 
          <%= link_to 'Edit', edit_progress_note_path(@progress_note) %> |
          <%= link_to 'Back', progress_notes_path %>

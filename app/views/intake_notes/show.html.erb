@@ -2,57 +2,60 @@
 
 <div class="container py-5">
    <div class="row">
-      <div id="blocks" class="col-md-5 mx-auto border py-4">
+      <div id="blocks" class="col-md-10 mx-auto border py-4">
 
-         <p>
-           <strong>Clinician:</strong>
-           <%= @intake_note.user.first_name %> <%= @intake_note.user.last_name %>
-         </p>
+         <div class="row">
+            <div class="col-md-6">
+               <h3>Patient: <small><%= @intake_note.patient.first_name %> <%= @intake_note.patient.last_name %></small></h3>
+               <h3>Clinician: <small><%= @intake_note.user.first_name %> <%= @intake_note.user.last_name %></small></h3>
+            </div>
+            <div class="col-md-6">
+               <h3>Date: <small><%= @intake_note.date %></small></h3>
+            </div>
+         </div>
 
-         <p>
-           <strong>Patient:</strong>
-           <%= @intake_note.patient.first_name %> <%= @intake_note.patient.last_name %>
-         </p>
+         <hr>
 
-         <p>
-           <strong>Note type:</strong>
-           <%= @intake_note.note_type %>
-         </p>
+         <div class="row">
+            <div class="col-md-6">
+               <p>
+                 <strong>Note type:</strong>
+                 <%= @intake_note.note_type %>
+               </p>
 
-         <p>
-           <strong>Presenting problem:</strong>
-           <%= @intake_note.presenting_problem %>
-         </p>
+               <p>
+                 <strong>Presenting problem:</strong>
+                 <%= @intake_note.presenting_problem %>
+               </p>
 
-         <p>
-           <strong>Current mental status:</strong>
-           <%= @intake_note.current_mental_status %>
-         </p>
+               <p>
+                 <strong>Current mental status:</strong>
+                 <%= @intake_note.current_mental_status %>
+               </p>
 
-         <p>
-           <strong>Safety issues:</strong>
-           <%= @intake_note.safety_issues %>
-         </p>
+               <p>
+                 <strong>Safety issues:</strong>
+                 <%= @intake_note.safety_issues %>
+               </p>
 
-         <p>
-           <strong>Background:</strong>
-           <%= @intake_note.background %>
-         </p>
+               <p>
+                 <strong>Background:</strong>
+                 <%= @intake_note.background %>
+               </p>
+            </div>
+            <div class="col-md-6">
+               <p>
+                 <strong>Diagnosis:</strong>
+                 <%= @intake_note.diagnosis %>
+               </p>
 
-         <p>
-           <strong>Diagnosis:</strong>
-           <%= @intake_note.diagnosis %>
-         </p>
+               <p>
+                 <strong>Time:</strong>
+                 <%= @intake_note.time %>
+               </p>
+            </div>
+         </div>
 
-         <p>
-           <strong>Date:</strong>
-           <%= @intake_note.date %>
-         </p>
-
-         <p>
-           <strong>Time:</strong>
-           <%= @intake_note.time %>
-         </p>
 
          <%= link_to 'Edit', edit_intake_note_path(@intake_note) %> |
          <%= link_to 'Back', intake_notes_path %>

@@ -2,57 +2,61 @@
 
 <div class="container py-5">
    <div class="row">
-      <div id="blocks" class="col-md-5 mx-auto border py-4">
+      <div id="blocks" class="col-md-10 mx-auto border py-4">
 
-         <p>
-           <strong>Clinician:</strong>
-           <%= @treatment_plan_note.user.first_name %> <%= @treatment_plan_note.user.last_name %>
-         </p>
 
-         <p>
-           <strong>Patient:</strong>
-           <%= @treatment_plan_note.patient.first_name %> <%= @treatment_plan_note.patient.last_name %>
-         </p>
+         <div class="row">
+            <div class="col-md-6">
+               <h3>Patient: <small><%= @treatment_plan_note.patient.first_name %> <%= @treatment_plan_note.patient.last_name %></small></h3>
+               <h3>Clinician: <small> <%= @treatment_plan_note.user.first_name %> <%= @treatment_plan_note.user.last_name %></small></h3>
+            </div>
+            <div class="col-md-6">
+               <h3>Date: <small><%= @treatment_plan_note.date %></small></h3>
+            </div>
+         </div>
 
-         <p>
-           <strong>Date:</strong>
-           <%= @treatment_plan_note.date %>
-         </p>
+         <hr>
 
-         <p>
-           <strong>Time:</strong>
-           <%= @treatment_plan_note.time %>
-         </p>
+         <div class="row">
+            <div class="col-md-6">
+               <p>
+                 <strong>Time:</strong>
+                 <%= @treatment_plan_note.time %>
+               </p>
 
-         <p>
-           <strong>Diagnosis:</strong>
-           <%= @treatment_plan_note.diagnosis %>
-         </p>
+               <p>
+                 <strong>Diagnosis:</strong>
+                 <%= @treatment_plan_note.diagnosis %>
+               </p>
 
-         <p>
-           <strong>Presenting problem:</strong>
-           <%= @treatment_plan_note.presenting_problem %>
-         </p>
+               <p>
+                 <strong>Presenting problem:</strong>
+                 <%= @treatment_plan_note.presenting_problem %>
+               </p>
 
-         <p>
-           <strong>Treatment goals:</strong>
-           <%= @treatment_plan_note.treatment_goals %>
-         </p>
+               <p>
+                 <strong>Treatment goals:</strong>
+                 <%= @treatment_plan_note.treatment_goals %>
+               </p>
 
-         <p>
-           <strong>Objective:</strong>
-           <%= @treatment_plan_note.objective %>
-         </p>
+               <p>
+                 <strong>Objective:</strong>
+                 <%= @treatment_plan_note.objective %>
+               </p>
+            </div>
+            <div class="col-md-6">
+               <p>
+                 <strong>Frequency:</strong>
+                 <%= @treatment_plan_note.frequency %>
+               </p>
 
-         <p>
-           <strong>Frequency:</strong>
-           <%= @treatment_plan_note.frequency %>
-         </p>
+               <p>
+                 <strong>Note type:</strong>
+                 <%= @treatment_plan_note.note_type %>
+               </p>
+            </div>
+         </div>
 
-         <p>
-           <strong>Note type:</strong>
-           <%= @treatment_plan_note.note_type %>
-         </p>
 
          <%= link_to 'Edit', edit_treatment_plan_note_path(@treatment_plan_note) %> |
          <%= link_to 'Back', treatment_plan_notes_path %>
