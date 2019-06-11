@@ -5,7 +5,7 @@ class CreateAllergies < ActiveRecord::Migration[5.2]
       t.string :reaction
       t.string :severity
       t.text :note
-      t.references :record, foreign_key: true
+
 
       t.timestamps
     end

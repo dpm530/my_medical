@@ -12,13 +12,16 @@
 
 ActiveRecord::Schema.define(version: 2019_06_05_225633) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
     t.string "resource_type"
-    t.integer "resource_id"
+    t.bigint "resource_id"
     t.string "author_type"
-    t.integer "author_id"
+    t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
@@ -50,7 +53,7 @@ ActiveRecord::Schema.define(version: 2019_06_05_225633) do
     t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "patient_id"
+    t.bigint "patient_id"
     t.index ["patient_id"], name: "index_allergies_on_patient_id"
   end
 
@@ -59,7 +62,7 @@ ActiveRecord::Schema.define(version: 2019_06_05_225633) do
     t.string "diagnosis"
     t.string "treatment"
     t.text "note"
-    t.integer "patient_id"
+    t.bigint "patient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["patient_id"], name: "index_diagnoses_on_patient_id"
@@ -78,9 +81,9 @@ ActiveRecord::Schema.define(version: 2019_06_05_225633) do
     t.string "state"
     t.string "zipcode"
     t.text "note"
+    t.bigint "patient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "patient_id"
     t.index ["patient_id"], name: "index_emergency_contacts_on_patient_id"
   end
 
@@ -91,7 +94,7 @@ ActiveRecord::Schema.define(version: 2019_06_05_225633) do
     t.date "dob"
     t.date "dod"
     t.string "medical_history"
-    t.integer "patient_id"
+    t.bigint "patient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["patient_id"], name: "index_family_histories_on_patient_id"
@@ -110,7 +113,7 @@ ActiveRecord::Schema.define(version: 2019_06_05_225633) do
     t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "patient_id"
+    t.bigint "patient_id"
     t.index ["patient_id"], name: "index_general_informations_on_patient_id"
   end
 
@@ -121,7 +124,7 @@ ActiveRecord::Schema.define(version: 2019_06_05_225633) do
     t.string "group_number"
     t.string "coverage"
     t.string "copays"
-    t.integer "patient_id"
+    t.bigint "patient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["patient_id"], name: "index_health_insurances_on_patient_id"
@@ -135,15 +138,15 @@ ActiveRecord::Schema.define(version: 2019_06_05_225633) do
     t.string "dosage"
     t.string "manufacturer"
     t.text "note"
-    t.integer "patient_id"
+    t.bigint "patient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["patient_id"], name: "index_immunizations_on_patient_id"
   end
 
   create_table "intake_notes", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "patient_id"
+    t.bigint "user_id"
+    t.bigint "patient_id"
     t.string "note_type"
     t.string "presenting_problem"
     t.string "current_mental_status"
@@ -168,7 +171,7 @@ ActiveRecord::Schema.define(version: 2019_06_05_225633) do
     t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "patient_id"
+    t.bigint "patient_id"
     t.index ["patient_id"], name: "index_medications_on_patient_id"
   end
 
@@ -188,13 +191,13 @@ ActiveRecord::Schema.define(version: 2019_06_05_225633) do
     t.string "employer"
     t.string "occupation"
     t.string "sex"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_patients_on_user_id"
   end
 
   create_table "progress_notes", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "patient_id"
+    t.bigint "user_id"
+    t.bigint "patient_id"
     t.date "date"
     t.time "time"
     t.integer "duration"
@@ -215,15 +218,15 @@ ActiveRecord::Schema.define(version: 2019_06_05_225633) do
 
   create_table "to_do_lists", force: :cascade do |t|
     t.string "item"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_to_do_lists_on_user_id"
   end
 
   create_table "treatment_plan_notes", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "patient_id"
+    t.bigint "user_id"
+    t.bigint "patient_id"
     t.date "date"
     t.time "time"
     t.string "diagnosis"
@@ -253,4 +256,17 @@ ActiveRecord::Schema.define(version: 2019_06_05_225633) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "diagnoses", "patients"
+  add_foreign_key "emergency_contacts", "patients"
+  add_foreign_key "family_histories", "patients"
+  add_foreign_key "health_insurances", "patients"
+  add_foreign_key "immunizations", "patients"
+  add_foreign_key "intake_notes", "patients"
+  add_foreign_key "intake_notes", "users"
+  add_foreign_key "patients", "users"
+  add_foreign_key "progress_notes", "patients"
+  add_foreign_key "progress_notes", "users"
+  add_foreign_key "to_do_lists", "users"
+  add_foreign_key "treatment_plan_notes", "patients"
+  add_foreign_key "treatment_plan_notes", "users"
 end

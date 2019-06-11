@@ -8,7 +8,7 @@ class CreateMedications < ActiveRecord::Migration[5.2]
       t.string :reason_taking
       t.string :side_effects
       t.text :note
-      t.references :record, foreign_key: true
+
 
       t.timestamps
     end
