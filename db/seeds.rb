@@ -8,13 +8,13 @@
 
 
 if Rails.env.development?
-   User.create!(first_name: 'Guest', last_name: 'Mode', email: 'guest@mymedical.com', password: '123456', password_confirmation: '123456')
+   User.create!(first_name: 'Guest', last_name: 'Account', email: 'guest@mymedical.com', password: '123456', password_confirmation: '123456')
    User.create!(first_name: 'Ari', last_name: 'Gold', email: 'arigold@gmail.com', password: '123456', password_confirmation: '123456')
    AdminUser.create!(email: 'admin@mymedical.com', password: 'password', password_confirmation: 'password')
 end
 
 if Rails.env.production?
-   User.create!(first_name: 'Guest', last_name: 'Mode', email: 'guest@mymedical.com', password: '123456', password_confirmation: '123456')
+   User.create!(first_name: 'Guest', last_name: 'Account', email: 'guest@mymedical.com', password: '123456', password_confirmation: '123456')
    User.create!(first_name: 'Ari', last_name: 'Gold', email: 'arigold@gmail.com', password: '123456', password_confirmation: '123456')
    AdminUser.create!(email: 'admin@mymedical.com', password: 'password', password_confirmation: 'password')
 end
