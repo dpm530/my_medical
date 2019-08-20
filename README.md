@@ -1,24 +1,20 @@
-# README
+## My Medical
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+My Medical (EMR) is a cloud-based electronic medical record and practice management solution for small to midsize practices.
 
-Things you may want to cover:
+It provides small practices with patient health records, notes, practices documents as well as provide employees admin account access, doctor account access, and to-do list.
 
-* Ruby version
+## Technologies Used
 
-* System dependencies
+* Ruby on Rails
+* PostgreSQL
+* HTML
+* CSS
+* Bootstrap
+* JavaScript
+* Git/Github
+* AWS: Ec2, Route53, ACM, ELB
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Demo
+* Here is a working live demo : https://mymedical.website
+* Use Guest Account for quick access.
