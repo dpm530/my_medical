@@ -1,6 +1,7 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "animate";
 
 
 body{
@@ -15,11 +16,16 @@ footer{
 
    background-color: #f2f2f2;
 }
-.navbar-nav .nav-link,a{
+nav ul.navbar-nav a.nav-link {
    color: white;
+   font-size: 1.2rem;
 }
 #blocks{
    background-color: white;
+}
+
+a,p{
+   font-family: 'Roboto', sans-serif;
 }
 
 // #page-content-wrapper {
@@ -36,9 +42,7 @@ footer{
 // }
 
 
-/* ===========================
---- Intro
-============================ */
+
 
 .intro {
 	width:100%;
@@ -76,7 +80,6 @@ footer{
 	border: none;
 }
 
-/* box */
 
 
 .box {
@@ -113,11 +116,6 @@ footer{
 .color {
 	color: #299dcc;
 }
-
-
-
-
-
 
 .company-social {
 	margin-left: 0;
@@ -172,12 +170,6 @@ footer{
 
 
 
-
-
-/* ===========
-Typo
-============= */
-
 h1 {
 	font-size: 38px;
 }
@@ -203,11 +195,11 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 0 0 30px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-	color: #444;
-	line-height: 1em;
+   margin: 0 0 30px;
+   font-family: 'Roboto', sans-serif;
+   font-weight: 400;
+   color: #444;
+   line-height: 1em;
 }
 
 h1.h-xlight,h2.h-xlight,h3.h-xlight ,h4.h-xlight ,h5.h-xlight ,h6.h-xlight  {

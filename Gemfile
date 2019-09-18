@@ -35,6 +35,8 @@ gem 'jquery-rails'
 gem 'mini_racer'
 gem 'font-awesome-sass', '~> 5.8.1'
 gem 'carrierwave', '~> 1.0'
+gem "animate-rails"
+gem 'wow-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

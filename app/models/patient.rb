@@ -12,5 +12,5 @@ class Patient < ApplicationRecord
    has_many :intake_notes
    has_many :treatment_plan_notes
 
-
+   validates :first_name, presence: true
 end
